@@ -23,10 +23,12 @@ extern const NSString *modeNonShared;
 @property (nonatomic, retain) NSMutableDictionary *Singletons;
 
 - (void) registerClass:(Class)class withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
+- (void) registerProtocol:(Protocol *)proto withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
 
 - (void) registerInterceptor: (id<IInterceptor>)interceptor forProtocol: (Protocol *)proto;
 - (id<IInterceptor>) InterceptorForProtocol: (Protocol *)proto;
 
 - (id) newInstanceOfClass: (Class)class;
+- (id) newInstanceOfProtocol: (Protocol *)proto;
 
 @end

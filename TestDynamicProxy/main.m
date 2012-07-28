@@ -13,6 +13,7 @@
 #import "SimpleClass.h"
 #import "CountingAspect.h"
 #import "SupportsCounting.h"
+#import "ILogger.h"
 
 int main(int argc, const char * argv[])
 {
@@ -29,6 +30,9 @@ int main(int argc, const char * argv[])
         
         CountingAspect *countingAspect = [[Container sharedContainer] InterceptorForProtocol:@protocol(SupportsCounting)];
         NSLog(@"SimpleClass doIt() was called %ld times", [countingAspect countForSelector:@selector(doIt) inClass:[SimpleClass class]]);
+        
+        id<ILogger> logger = [[Container sharedContainer] newInstanceOfProtocol:@protocol(ILogger)];
+        [logger logMessage:@"hello world"];
         
         return 0;
     }

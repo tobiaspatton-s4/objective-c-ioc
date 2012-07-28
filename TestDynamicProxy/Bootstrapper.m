@@ -12,6 +12,7 @@
 #import "SupportsCounting.h"
 #import "CountingAspect.h"
 #import "SupportsCounting.h"
+#import "ConsoleLogger.h"
 
 @implementation Bootstrapper
 
@@ -21,6 +22,7 @@
     
     // Register classes
     [container registerClass:[SimpleClass class] withInitializer:^(){ return [[SimpleClass alloc] init]; } andMode:modeNonShared];
+    [container registerProtocol:@protocol(ILogger) withInitializer:^(){ return [[ConsoleLogger alloc] init]; } andMode:modeShared];
     
     // Register interceptors
     LoggingInterceptor *loggingInterceptor = [[[LoggingInterceptor alloc] init] autorelease];

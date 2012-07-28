@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6EA6B7E15C43695006DE88C /* ConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA6B7D15C43695006DE88C /* ConsoleLogger.m */; };
 		FAB3072B15C32D070028504F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3072A15C32D070028504F /* CoreFoundation.framework */; };
 		FAB3072E15C32D070028504F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3072D15C32D070028504F /* main.m */; };
 		FAB3073815C32D240028504F /* DynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3073715C32D240028504F /* DynamicProxy.m */; };
@@ -31,6 +32,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F6EA6B7915C4364E006DE88C /* ILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILogger.h; sourceTree = "<group>"; };
+		F6EA6B7C15C43695006DE88C /* ConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = "<group>"; };
+		F6EA6B7D15C43695006DE88C /* ConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleLogger.m; sourceTree = "<group>"; };
 		FAB3072615C32D070028504F /* TestDynamicProxy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestDynamicProxy; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3072A15C32D070028504F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FAB3072D15C32D070028504F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -139,6 +143,9 @@
 			children = (
 				FAB3074D15C3449A0028504F /* SimpleClass.h */,
 				FAB3074E15C3449A0028504F /* SimpleClass.m */,
+				F6EA6B7915C4364E006DE88C /* ILogger.h */,
+				F6EA6B7C15C43695006DE88C /* ConsoleLogger.h */,
+				F6EA6B7D15C43695006DE88C /* ConsoleLogger.m */,
 			);
 			name = TestClasses;
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 				FAB3074B15C341D00028504F /* Bootstrapper.m in Sources */,
 				FAB3074F15C3449A0028504F /* SimpleClass.m in Sources */,
 				FAB3075415C354810028504F /* CountingAspect.m in Sources */,
+				F6EA6B7E15C43695006DE88C /* ConsoleLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +311,7 @@
 				FAB3073515C32D070028504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

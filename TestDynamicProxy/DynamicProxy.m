@@ -11,36 +11,43 @@
 @implementation DynamicProxy
 
 @synthesize InnerObject;
-@synthesize Interceptor;
+@synthesize Interceptors;
 
-- (id) initWithBlock: (InitializerBlock)initializerBlock andInterceptor:(id<IInterceptor>)interceptor;
+- (id) initWithBlock: (InitializerBlock)initializerBlock andInterceptors:(NSArray *)interceptors;
 {
     if(self = [super init])
     {
         InnerObject = initializerBlock();
-        self.Interceptor = interceptor;
+        self.Interceptors = interceptors;
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [InnerObject dealloc];
+    [InnerObject release];
+    [Interceptors release];
     [super dealloc];
 }
 
 - (void) forwardInvocation:(NSInvocation *)anInvocation
 {
-    if(Interceptor != nil)
+    if(Interceptors != nil)
     {
-        [Interceptor willInvoke:anInvocation];
+        for(id interceptor in Interceptors)
+        {
+            [interceptor willInvoke:anInvocation];
+        }
     }
     
     [anInvocation invokeWithTarget:InnerObject];
     
-    if(Interceptor != nil)
+    if(Interceptors != nil)
     {
-        [Interceptor didInvoke:anInvocation];
+        for(id interceptor in Interceptors)
+        {
+            [interceptor didInvoke:anInvocation];
+        }
     }
 }
 
