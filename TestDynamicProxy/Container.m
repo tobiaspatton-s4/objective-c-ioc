@@ -15,6 +15,7 @@
 - (void) registerName:(NSString *)name withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
 - (NSArray *) registeredInterceptorsForClass: (Class)class;
 - (id) newInstanceOfName: (NSString *)name;
+- (void) addInterceptorsToProxy: (id) proxy;
 @end
 
 @implementation Container
@@ -130,9 +131,7 @@ static Container *gContainer;
         return nil;
     }
     
-//    NSArray *interceptors = [self registeredInterceptorsForName:name];    
-    NSArray *interceptors = nil;
-    id result = [[DynamicProxy alloc] initWithBlock:intializerBlock andInterceptors:interceptors];
+    id result = [[DynamicProxy alloc] initWithBlock:intializerBlock];
     
     if(result == nil)
     {
@@ -140,7 +139,22 @@ static Container *gContainer;
         return nil;
     }
     
+    [self addInterceptorsToProxy:result];
     return result;    
+}
+
+- (void) addInterceptorsToProxy: (id) proxy
+{
+    NSArray *interceptors = [self registeredInterceptorsForClass:[proxy InnerClass]];
+    if(interceptors == nil)
+    {
+        return;
+    }
+    
+    for(id interceptor in interceptors)
+    {
+        [proxy addInterceptor:interceptor];
+    }
 }
 
 @end

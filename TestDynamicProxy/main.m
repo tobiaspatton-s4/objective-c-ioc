@@ -34,6 +34,9 @@ int main(int argc, const char * argv[])
         id<ILogger> logger = [[[Container sharedContainer] newInstanceOfProtocol:@protocol(ILogger)] autorelease];
         [logger logMessage:@"hello world"];
         
+        id<ILogger> logger2 = [[[Container sharedContainer] newInstanceOfProtocol:@protocol(ILogger)] autorelease];
+        [logger2 logMessage:@"hello world from logger 2"];
+        
         return 0;
     }
 }

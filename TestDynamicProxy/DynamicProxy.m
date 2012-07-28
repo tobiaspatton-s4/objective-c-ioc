@@ -13,14 +13,28 @@
 @synthesize InnerObject;
 @synthesize Interceptors;
 
-- (id) initWithBlock: (InitializerBlock)initializerBlock andInterceptors:(NSArray *)interceptors;
+- (id) initWithBlock: (InitializerBlock)initializerBlock
 {
     if(self = [super init])
     {
         InnerObject = initializerBlock();
-        self.Interceptors = interceptors;
+        self.Interceptors = [[NSMutableArray alloc] init];
+    }
+    return self;    
+}
+
+- (id) initWithBlock: (InitializerBlock)initializerBlock andInterceptors:(NSArray *)interceptors;
+{
+    if(self = [self initWithBlock:initializerBlock])
+    {
+        self.Interceptors = [NSMutableArray arrayWithArray:interceptors];
     }
     return self;
+}
+
+- (void) addInterceptor: (id<IInterceptor>) interceptor
+{
+    [Interceptors addObject: interceptor];
 }
 
 - (void) dealloc
@@ -54,6 +68,11 @@
 - (NSMethodSignature *) methodSignatureForSelector:(SEL)aSelector
 {
     return [InnerObject methodSignatureForSelector:aSelector];
+}
+
+- (Class) InnerClass
+{
+    return [InnerObject class];
 }
 
 @end

@@ -14,8 +14,11 @@ typedef id (^InitializerBlock)();
 @interface DynamicProxy : NSObject
 
 @property (nonatomic, retain) id InnerObject;
-@property (nonatomic, retain) NSArray *Interceptors;
+@property (nonatomic, retain) NSMutableArray *Interceptors;
 
+- (id) initWithBlock: (InitializerBlock)initializerBlock;
 - (id) initWithBlock: (InitializerBlock)initializerBlock andInterceptors:(NSArray *)interceptors;
+- (void) addInterceptor: (id<IInterceptor>) interceptor;
+- (Class) InnerClass;
 
 @end
