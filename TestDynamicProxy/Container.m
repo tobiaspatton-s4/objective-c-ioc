@@ -72,18 +72,18 @@ static Container *gContainer;
 
 - (void) registerName:(NSString *)name withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode
 {
-    InitializerBlock registeredInitializerBlock = initializer;
     if(mode == modeShared)
     {
         id instance = initializer();
-        [Singletons setObject:instance forKey:name];
-        registeredInitializerBlock = ^()
-            {
-               return [[Singletons valueForKey:name] retain];
-            };
+        [Singletons setObject:instance forKey:name];  
+        // Copy the block. It is stack object and will be invalidted when the stack from is popped.
+        InitializerBlock block = [[^(){return [[Singletons valueForKey:name] retain];} copy] autorelease];
+        [RegisteredClasses setObject:block forKey:name];    
     }
-    
-    [RegisteredClasses setObject:registeredInitializerBlock forKey:name];    
+    else 
+    {
+        [RegisteredClasses setObject:initializer forKey:name];    
+    }
 }
 
 - (void) registerInterceptor: (id<IInterceptor>)interceptor forProtocol: (Protocol *)proto;
