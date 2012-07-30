@@ -31,4 +31,6 @@ extern const NSString *modeNonShared;
 - (id) newInstanceOfClass: (Class)class;
 - (id) newInstanceOfProtocol: (Protocol *)proto;
 
+- (void) satisfyImportsForObject: (id)object;
+
 @end

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F6EA6B7E15C43695006DE88C /* ConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA6B7D15C43695006DE88C /* ConsoleLogger.m */; };
+		F6EA6B8115C48A02006DE88C /* ImportingClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA6B8015C48A02006DE88C /* ImportingClass.m */; };
+		F6EA6B8515C494F9006DE88C /* PropertyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA6B8415C494F9006DE88C /* PropertyUtils.m */; };
+		F6EA6B8715C49647006DE88C /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EA6B8615C49647006DE88C /* libobjc.A.dylib */; };
 		FAB3072B15C32D070028504F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3072A15C32D070028504F /* CoreFoundation.framework */; };
 		FAB3072E15C32D070028504F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3072D15C32D070028504F /* main.m */; };
 		FAB3073815C32D240028504F /* DynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3073715C32D240028504F /* DynamicProxy.m */; };
@@ -35,6 +38,11 @@
 		F6EA6B7915C4364E006DE88C /* ILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILogger.h; sourceTree = "<group>"; };
 		F6EA6B7C15C43695006DE88C /* ConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = "<group>"; };
 		F6EA6B7D15C43695006DE88C /* ConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleLogger.m; sourceTree = "<group>"; };
+		F6EA6B7F15C48A02006DE88C /* ImportingClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportingClass.h; sourceTree = "<group>"; };
+		F6EA6B8015C48A02006DE88C /* ImportingClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportingClass.m; sourceTree = "<group>"; };
+		F6EA6B8315C494F9006DE88C /* PropertyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyUtils.h; sourceTree = "<group>"; };
+		F6EA6B8415C494F9006DE88C /* PropertyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyUtils.m; sourceTree = "<group>"; };
+		F6EA6B8615C49647006DE88C /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		FAB3072615C32D070028504F /* TestDynamicProxy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestDynamicProxy; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3072A15C32D070028504F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FAB3072D15C32D070028504F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6EA6B8715C49647006DE88C /* libobjc.A.dylib in Frameworks */,
 				FAB3073A15C32D830028504F /* Cocoa.framework in Frameworks */,
 				FAB3072B15C32D070028504F /* CoreFoundation.framework in Frameworks */,
 			);
@@ -69,9 +78,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F6EA6B8215C494E0006DE88C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F6EA6B8315C494F9006DE88C /* PropertyUtils.h */,
+				F6EA6B8415C494F9006DE88C /* PropertyUtils.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		FAB3071B15C32D070028504F = {
 			isa = PBXGroup;
 			children = (
+				F6EA6B8615C49647006DE88C /* libobjc.A.dylib */,
 				FAB3073915C32D830028504F /* Cocoa.framework */,
 				FAB3072C15C32D070028504F /* TestDynamicProxy */,
 				FAB3072915C32D070028504F /* Frameworks */,
@@ -98,6 +117,7 @@
 		FAB3072C15C32D070028504F /* TestDynamicProxy */ = {
 			isa = PBXGroup;
 			children = (
+				F6EA6B8215C494E0006DE88C /* Utilities */,
 				FAB3075115C354680028504F /* CountingAspect */,
 				FAB3075015C345A10028504F /* Container */,
 				FAB3074C15C3447A0028504F /* TestClasses */,
@@ -146,6 +166,8 @@
 				F6EA6B7915C4364E006DE88C /* ILogger.h */,
 				F6EA6B7C15C43695006DE88C /* ConsoleLogger.h */,
 				F6EA6B7D15C43695006DE88C /* ConsoleLogger.m */,
+				F6EA6B7F15C48A02006DE88C /* ImportingClass.h */,
+				F6EA6B8015C48A02006DE88C /* ImportingClass.m */,
 			);
 			name = TestClasses;
 			sourceTree = "<group>";
@@ -227,6 +249,8 @@
 				FAB3074F15C3449A0028504F /* SimpleClass.m in Sources */,
 				FAB3075415C354810028504F /* CountingAspect.m in Sources */,
 				F6EA6B7E15C43695006DE88C /* ConsoleLogger.m in Sources */,
+				F6EA6B8115C48A02006DE88C /* ImportingClass.m in Sources */,
+				F6EA6B8515C494F9006DE88C /* PropertyUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

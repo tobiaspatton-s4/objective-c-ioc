@@ -157,4 +157,9 @@ static Container *gContainer;
     }
 }
 
+- (void) satisfyImportsForObject: (id)object
+{
+    
+}
+
 @end

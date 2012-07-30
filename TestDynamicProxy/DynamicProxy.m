@@ -18,7 +18,7 @@
     if(self = [super init])
     {
         InnerObject = initializerBlock();
-        self.Interceptors = [[NSMutableArray alloc] init];
+        self.Interceptors = [NSMutableArray array];
     }
     return self;    
 }

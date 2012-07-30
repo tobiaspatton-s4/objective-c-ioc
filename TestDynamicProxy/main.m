@@ -14,6 +14,8 @@
 #import "CountingAspect.h"
 #import "SupportsCounting.h"
 #import "ILogger.h"
+#import "PropertyUtils.h"
+#import "ImportingClass.h"
 
 int main(int argc, const char * argv[])
 {
@@ -36,6 +38,8 @@ int main(int argc, const char * argv[])
         
         id<ILogger> logger2 = [[[Container sharedContainer] newInstanceOfProtocol:@protocol(ILogger)] autorelease];
         [logger2 logMessage:@"hello world from logger 2"];
+        
+        [PropertyUtils classProperties:[ImportingClass class]];
         
         return 0;
     }
