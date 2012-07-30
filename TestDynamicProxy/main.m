@@ -7,14 +7,8 @@
 //
 
 #import <CoreFoundation/CoreFoundation.h>
-#import "DynamicProxy.h"
+#import <objc/runtime.h>
 #import "Bootstrapper.h"
-#import "Container.h"
-#import "SimpleClass.h"
-#import "CountingAspect.h"
-#import "SupportsCounting.h"
-#import "ILogger.h"
-#import "PropertyUtils.h"
 #import "ImportingClass.h"
 
 int main(int argc, const char * argv[])
@@ -23,23 +17,9 @@ int main(int argc, const char * argv[])
     {
         [Bootstrapper configureContainer];
         
-        id proxy = [[[Container sharedContainer] newInstanceOfClass:[SimpleClass class]] autorelease];        
-        [proxy doIt];
-        NSLog(@"proxy.returnIt returned: %@", [proxy returnIt]);
-        
-        id proxy2 = [[[Container sharedContainer] newInstanceOfClass:[SimpleClass class]] autorelease];        
-        [proxy2 doIt];
-        
-        CountingAspect *countingAspect = [[Container sharedContainer] InterceptorForProtocol:@protocol(SupportsCounting)];
-        NSLog(@"SimpleClass doIt() was called %ld times", [countingAspect countForSelector:@selector(doIt) inClass:[SimpleClass class]]);
-        
-        id<ILogger> logger = [[[Container sharedContainer] newInstanceOfProtocol:@protocol(ILogger)] autorelease];
-        [logger logMessage:@"hello world"];
-        
-        id<ILogger> logger2 = [[[Container sharedContainer] newInstanceOfProtocol:@protocol(ILogger)] autorelease];
-        [logger2 logMessage:@"hello world from logger 2"];
-        
-        [PropertyUtils classProperties:[ImportingClass class]];
+        ImportingClass *ic = [[ImportingClass alloc] init];
+        [[Container sharedContainer] satisfyImportsForObject:ic];
+        [ic logMessage:@"Hello world"];
         
         return 0;
     }

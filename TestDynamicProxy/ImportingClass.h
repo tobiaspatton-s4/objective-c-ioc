@@ -12,11 +12,7 @@
 
 @interface ImportingClass : NSObject
 
-@property (nonatomic, retain) id<ILogger> ImportLogger;
-@property (nonatomic, retain) id<SupportsLogging, ILogger> test;
-@property (nonatomic, retain) NSString *test2;
-@property (nonatomic, retain) NSString<ILogger> *test3;
-@property (nonatomic, retain) id test4;
+@property (nonatomic, retain) id<ILogger> importLogger;
 
 - (void) logMessage: (NSString *)message;
 

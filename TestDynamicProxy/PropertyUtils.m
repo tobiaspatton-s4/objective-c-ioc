@@ -27,7 +27,6 @@ NSString *PropertyProtocols = @"proto";
     {
         NSString *propertyName = [NSString stringWithCString:property_getName(propertyList[i]) encoding:NSUTF8StringEncoding];
         NSString *propertyAttributes = [NSString stringWithCString:property_getAttributes(propertyList[i]) encoding:NSUTF8StringEncoding];
-        NSLog(@"%@, %@", propertyName, propertyAttributes);
         [result setValue:[self parsePropertyAttributes:propertyAttributes] forKey:propertyName];
     }
     return result;
@@ -92,9 +91,15 @@ NSString *PropertyProtocols = @"proto";
         
         // Parse the list of protocols
         
-        if(startOfProtocols.location != NSNotFound)
+        if(startOfProtocols.location == NSNotFound)
         {            
-            NSString *protocolsAttr = [typeAttr substringWithRange:NSMakeRange(startOfProtocols.location + 1, [typeAttr length] - 2)];
+            [result setValue:nil forKey:PropertyProtocols];
+        }
+        else
+        {   
+            unsigned loc = startOfProtocols.location + 1;
+            unsigned len = [typeAttr length] - loc - 1;
+            NSString *protocolsAttr = [typeAttr substringWithRange:NSMakeRange(loc, len)];
             NSArray *protocolNames = [protocolsAttr componentsSeparatedByString:@"><"];
             NSMutableArray *protocols = [NSMutableArray array];
             for(id protocolName in protocolNames)
@@ -107,10 +112,6 @@ NSString *PropertyProtocols = @"proto";
                 [protocols addObject:proto];
             }
             [result setValue:protocols forKey:PropertyProtocols];
-        }
-        else 
-        {            
-            [result setValue:nil forKey:PropertyProtocols];
         }
     }
     

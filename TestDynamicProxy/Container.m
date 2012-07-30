@@ -7,15 +7,17 @@
 //
 
 #import "Container.h"
-#include "SupportsLogging.h"
-#include "LoggingInterceptor.h"
-
+#import "SupportsLogging.h"
+#import "LoggingInterceptor.h"
+#include "PropertyUtils.h"
+#import <objc/runtime.h>
 
 @interface Container(PrivateMethods)
 - (void) registerName:(NSString *)name withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
 - (NSArray *) registeredInterceptorsForClass: (Class)class;
 - (id) newInstanceOfName: (NSString *)name;
 - (void) addInterceptorsToProxy: (id) proxy;
+- (NSString *) defaultSetterForProperty: (NSString *)property;
 @end
 
 @implementation Container
@@ -159,7 +161,77 @@ static Container *gContainer;
 
 - (void) satisfyImportsForObject: (id)object
 {
+    NSMutableString *propertyTypeDisplayName = [NSMutableString string];
     
+    NSDictionary *properties = [PropertyUtils classProperties:[object class]];
+    NSSet *importPropertyKeys = [properties keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop)
+        {
+            return [[(NSString *)key lowercaseString] hasPrefix:@"import"];
+        }];
+    
+    for(id key in importPropertyKeys)
+    {
+        NSString *propertyDisplayName = [NSString stringWithFormat:@"%@.%@", [object class], key];
+        InitializerBlock initializer = nil;
+        
+        NSDictionary *propertyAttrs = [properties valueForKey:key];
+        Class class = (Class)[propertyAttrs valueForKey:PropertyType];
+        NSArray *protocols = (NSArray *)[propertyAttrs valueForKey:PropertyProtocols];
+        
+        if(class == nil && protocols == nil)
+        {
+            NSLog(@"Cannot satisfy imports for property %@ becuase the type is 'id' with no protocol", propertyDisplayName);
+            continue;
+        }
+        
+        // check for registered type first
+        if(class == nil)
+        {
+            [propertyTypeDisplayName appendString:@"id"];           
+        }
+        else
+        {
+            [propertyTypeDisplayName appendString:NSStringFromClass(class)];
+            initializer = [RegisteredClasses valueForKey:NSStringFromClass(class)];
+        }
+        
+        if(initializer == nil)
+        {
+            // check for a registered protocol
+            if(protocols == nil || [protocols count] == 0)
+            {
+                NSLog(@"Cannot satisfy import for %@, becuase the type %@ was not registered", propertyDisplayName, NSStringFromClass(class));
+                continue;
+            }
+            if([protocols count] > 1)
+            {
+                NSLog(@"Cannot satisfy import for %@, because it specifies more than one protocol", propertyDisplayName);
+                continue;
+            }
+            NSString *protoName = NSStringFromProtocol((Protocol *)[protocols objectAtIndex:0]);
+            [propertyTypeDisplayName appendFormat:@"<%@>", protoName];
+            initializer = [RegisteredClasses valueForKey:protoName];
+        }
+        if(initializer == nil)
+        {
+            NSLog(@"Unable to satisfy dependencies for %@ because the type %@ was not registered", propertyDisplayName, propertyTypeDisplayName);
+            continue;
+        }
+        else
+        {
+            // finally, satisfy the depedency.
+            // TODO: Add support for custom setter methods
+            id value = initializer();
+            SEL selector = NSSelectorFromString([self defaultSetterForProperty: key]);
+            [object performSelector:selector withObject:value];
+        }
+    }
+}
+
+- (NSString *) defaultSetterForProperty: (NSString *)property
+{
+    NSString *firstLetter = [property substringWithRange:NSMakeRange(0,1)];
+    return [NSString stringWithFormat:@"set%@%@:", [firstLetter uppercaseString], [property substringFromIndex:1]];
 }
 
 @end

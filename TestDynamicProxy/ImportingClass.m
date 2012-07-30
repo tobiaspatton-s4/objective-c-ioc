@@ -7,20 +7,21 @@
 //
 
 #import "ImportingClass.h"
+#import "ConsoleLogger.h"
 
 @implementation ImportingClass
 
-@synthesize ImportLogger;
-@synthesize test;
+@synthesize importLogger;
+
 
 - (void) logMessage: (NSString *)message
 {
-    if(ImportLogger == nil)
+    if(importLogger == nil)
     {
         NSLog(@"!! No logger");
         return;
     }
-    [ImportLogger logMessage:message];
+    [importLogger logMessage:message];
 }
 
 @end
