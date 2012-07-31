@@ -1,5 +1,5 @@
 //
-//  IInterceptor.h
+//  LoggingInterceptor.h
 //  TestDynamicProxy
 //
 //  Created by tobias patton on 7/27/12.
@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCIOCIntercepting.h"
 
-@protocol IInterceptor <NSObject>
-
-- (void) willInvoke: (NSInvocation *)invocation;
-- (void) didInvoke: (NSInvocation *)invocation;
+@interface LoggingInterceptor : NSObject<OCIOCIntercepting>
 
 @end

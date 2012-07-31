@@ -1,0 +1,258 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAB3080215C748380028504F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB307DB15C7472D0028504F /* CoreFoundation.framework */; };
+		FAB3080B15C7484A0028504F /* ConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307EE15C747A70028504F /* ConsoleLogger.m */; };
+		FAB3080C15C7484A0028504F /* LoggingInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307F515C747A70028504F /* LoggingInterceptor.m */; };
+		FAB3080D15C7484A0028504F /* loggingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307FB15C748000028504F /* loggingSample.m */; };
+		FAB3080F15C748A10028504F /* ocioc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3080E15C748A10028504F /* ocioc.framework */; };
+		FAB3081115C7490A0028504F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3081015C7490A0028504F /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FAB307FE15C748380028504F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FAB307DB15C7472D0028504F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		FAB307ED15C747A70028504F /* ConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = SOURCE_ROOT; };
+		FAB307EE15C747A70028504F /* ConsoleLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleLogger.m; sourceTree = SOURCE_ROOT; };
+		FAB307F115C747A70028504F /* ILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILogger.h; sourceTree = SOURCE_ROOT; };
+		FAB307F415C747A70028504F /* LoggingInterceptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingInterceptor.h; sourceTree = SOURCE_ROOT; };
+		FAB307F515C747A70028504F /* LoggingInterceptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingInterceptor.m; sourceTree = SOURCE_ROOT; };
+		FAB307F915C747A70028504F /* SupportsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportsLogging.h; sourceTree = SOURCE_ROOT; };
+		FAB307FB15C748000028504F /* loggingSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loggingSample.m; sourceTree = "<group>"; };
+		FAB3080015C748380028504F /* LoggingSample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LoggingSample; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB3080E15C748A10028504F /* ocioc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ocioc.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug/ocioc.framework"; sourceTree = "<group>"; };
+		FAB3081015C7490A0028504F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAB307FD15C748380028504F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB3081115C7490A0028504F /* Cocoa.framework in Frameworks */,
+				FAB3080F15C748A10028504F /* ocioc.framework in Frameworks */,
+				FAB3080215C748380028504F /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAB307CC15C7472D0028504F = {
+			isa = PBXGroup;
+			children = (
+				FAB3081C15C74F8C0028504F /* Common */,
+				FAB307FA15C747C80028504F /* Logging */,
+				FAB307DA15C7472D0028504F /* Frameworks */,
+				FAB307D815C7472D0028504F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAB307D815C7472D0028504F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3080015C748380028504F /* LoggingSample */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAB307DA15C7472D0028504F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3081015C7490A0028504F /* Cocoa.framework */,
+				FAB3080E15C748A10028504F /* ocioc.framework */,
+				FAB307DB15C7472D0028504F /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAB307FA15C747C80028504F /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				FAB307F415C747A70028504F /* LoggingInterceptor.h */,
+				FAB307F515C747A70028504F /* LoggingInterceptor.m */,
+				FAB307F915C747A70028504F /* SupportsLogging.h */,
+				FAB307FB15C748000028504F /* loggingSample.m */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		FAB3081C15C74F8C0028504F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FAB307ED15C747A70028504F /* ConsoleLogger.h */,
+				FAB307EE15C747A70028504F /* ConsoleLogger.m */,
+				FAB307F115C747A70028504F /* ILogger.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAB307FF15C748380028504F /* LoggingSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB3080815C748380028504F /* Build configuration list for PBXNativeTarget "LoggingSample" */;
+			buildPhases = (
+				FAB307FC15C748380028504F /* Sources */,
+				FAB307FD15C748380028504F /* Frameworks */,
+				FAB307FE15C748380028504F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoggingSample;
+			productName = LoggingSample;
+			productReference = FAB3080015C748380028504F /* LoggingSample */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAB307CE15C7472D0028504F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = FAB307D115C7472D0028504F /* Build configuration list for PBXProject "samples" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FAB307CC15C7472D0028504F;
+			productRefGroup = FAB307D815C7472D0028504F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAB307FF15C748380028504F /* LoggingSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAB307FC15C748380028504F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB3080B15C7484A0028504F /* ConsoleLogger.m in Sources */,
+				FAB3080C15C7484A0028504F /* LoggingInterceptor.m in Sources */,
+				FAB3080D15C7484A0028504F /* loggingSample.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FAB307E215C7472D0028504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/..\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FAB307E315C7472D0028504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/..\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FAB3080915C748380028504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FAB3080A15C748380028504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAB307D115C7472D0028504F /* Build configuration list for PBXProject "samples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB307E215C7472D0028504F /* Debug */,
+				FAB307E315C7472D0028504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB3080815C748380028504F /* Build configuration list for PBXNativeTarget "LoggingSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB3080915C748380028504F /* Debug */,
+				FAB3080A15C748380028504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAB307CE15C7472D0028504F /* Project object */;
+}

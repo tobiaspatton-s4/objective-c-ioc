@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DynamicProxy.h"
-#import "IInterceptor.h"
+#import "OCIOCDynamicProxy.h"
+#import "OCIOCIntercepting.h"
 
-@interface Container : NSObject
+@interface OCIOCContainer : NSObject
 
 // Mode parameter for registerClass::
 extern const NSString *modeShared;
 extern const NSString *modeNonShared;
 
-+ (Container *) sharedContainer;
++ (OCIOCContainer *) sharedContainer;
 
 @property (nonatomic, retain) NSMutableDictionary *RegisteredClasses;
 @property (nonatomic, retain) NSMutableDictionary *RegisteredInterceptors;
@@ -25,8 +25,8 @@ extern const NSString *modeNonShared;
 - (void) registerClass:(Class)class withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
 - (void) registerProtocol:(Protocol *)proto withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
 
-- (void) registerInterceptor: (id<IInterceptor>)interceptor forProtocol: (Protocol *)proto;
-- (id<IInterceptor>) InterceptorForProtocol: (Protocol *)proto;
+- (void) registerInterceptor: (id<OCIOCIntercepting>)interceptor forProtocol: (Protocol *)proto;
+- (id<OCIOCIntercepting>) InterceptorForProtocol: (Protocol *)proto;
 
 - (id) newInstanceOfClass: (Class)class;
 - (id) newInstanceOfProtocol: (Protocol *)proto;

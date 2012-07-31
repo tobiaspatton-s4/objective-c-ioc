@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "DynamicProxy.h"
+#import "OCIOCDynamicProxy.h"
 
-@implementation DynamicProxy
+@implementation OCIOCDynamicProxy
 
 @synthesize InnerObject;
 @synthesize Interceptors;
@@ -32,7 +32,7 @@
     return self;
 }
 
-- (void) addInterceptor: (id<IInterceptor>) interceptor
+- (void) addInterceptor: (id<OCIOCIntercepting>) interceptor
 {
     [Interceptors addObject: interceptor];
 }

@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAB3079E15C745470028504F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3079D15C745470028504F /* Cocoa.framework */; };
+		FAB307C215C745BB0028504F /* OCIOCContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B615C745BB0028504F /* OCIOCContainer.h */; };
+		FAB307C315C745BB0028504F /* OCIOCContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B715C745BB0028504F /* OCIOCContainer.m */; };
+		FAB307C415C745BB0028504F /* OCIOCDynamicProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */; };
+		FAB307C515C745BB0028504F /* OCIOCDynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */; };
+		FAB307C615C745BB0028504F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB307BB15C745BB0028504F /* InfoPlist.strings */; };
+		FAB307C715C745BB0028504F /* OCIOCIntercepting.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */; };
+		FAB307C915C745BB0028504F /* ocioc-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BF15C745BB0028504F /* ocioc-Prefix.pch */; };
+		FAB307CA15C745BB0028504F /* OCIOCPropertyUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */; };
+		FAB307CB15C745BB0028504F /* OCIOCPropertyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAB3081915C74F100028504F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAB307E715C7472D0028504F /* samples.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FAB3080015C748380028504F;
+			remoteInfo = LoggingSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FAB3079A15C745470028504F /* ocioc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ocioc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB3079D15C745470028504F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		FAB307A015C745470028504F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FAB307A115C745470028504F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FAB307A215C745470028504F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FAB307B615C745BB0028504F /* OCIOCContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCContainer.h; sourceTree = "<group>"; };
+		FAB307B715C745BB0028504F /* OCIOCContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCContainer.m; sourceTree = "<group>"; };
+		FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCDynamicProxy.h; sourceTree = "<group>"; };
+		FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCDynamicProxy.m; sourceTree = "<group>"; };
+		FAB307BC15C745BB0028504F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCIntercepting.h; sourceTree = "<group>"; };
+		FAB307BE15C745BB0028504F /* ocioc-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ocioc-Info.plist"; sourceTree = "<group>"; };
+		FAB307BF15C745BB0028504F /* ocioc-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ocioc-Prefix.pch"; sourceTree = "<group>"; };
+		FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCPropertyUtils.h; sourceTree = "<group>"; };
+		FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCPropertyUtils.m; sourceTree = "<group>"; };
+		FAB307E715C7472D0028504F /* samples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = samples.xcodeproj; path = samples/samples.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAB3079615C745470028504F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB3079E15C745470028504F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAB3078E15C745470028504F = {
+			isa = PBXGroup;
+			children = (
+				FAB307E715C7472D0028504F /* samples.xcodeproj */,
+				FAB307B615C745BB0028504F /* OCIOCContainer.h */,
+				FAB307B715C745BB0028504F /* OCIOCContainer.m */,
+				FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */,
+				FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */,
+				FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */,
+				FAB307BE15C745BB0028504F /* ocioc-Info.plist */,
+				FAB307BF15C745BB0028504F /* ocioc-Prefix.pch */,
+				FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */,
+				FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */,
+				FAB307BA15C745BB0028504F /* en.lproj */,
+				FAB3079C15C745470028504F /* Frameworks */,
+				FAB3079B15C745470028504F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAB3079B15C745470028504F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3079A15C745470028504F /* ocioc.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAB3079C15C745470028504F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3079D15C745470028504F /* Cocoa.framework */,
+				FAB3079F15C745470028504F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAB3079F15C745470028504F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB307A015C745470028504F /* AppKit.framework */,
+				FAB307A115C745470028504F /* CoreData.framework */,
+				FAB307A215C745470028504F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FAB307BA15C745BB0028504F /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				FAB307BB15C745BB0028504F /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		FAB307E815C7472D0028504F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3081A15C74F100028504F /* LoggingSample */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FAB3079715C745470028504F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB307C215C745BB0028504F /* OCIOCContainer.h in Headers */,
+				FAB307C415C745BB0028504F /* OCIOCDynamicProxy.h in Headers */,
+				FAB307C715C745BB0028504F /* OCIOCIntercepting.h in Headers */,
+				FAB307C915C745BB0028504F /* ocioc-Prefix.pch in Headers */,
+				FAB307CA15C745BB0028504F /* OCIOCPropertyUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FAB3079915C745470028504F /* ocioc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB307AF15C745470028504F /* Build configuration list for PBXNativeTarget "ocioc" */;
+			buildPhases = (
+				FAB3079515C745470028504F /* Sources */,
+				FAB3079615C745470028504F /* Frameworks */,
+				FAB3079715C745470028504F /* Headers */,
+				FAB3079815C745470028504F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ocioc;
+			productName = ocioc;
+			productReference = FAB3079A15C745470028504F /* ocioc.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAB3079015C745470028504F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = FAB3079315C745470028504F /* Build configuration list for PBXProject "ocioc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FAB3078E15C745470028504F;
+			productRefGroup = FAB3079B15C745470028504F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FAB307E815C7472D0028504F /* Products */;
+					ProjectRef = FAB307E715C7472D0028504F /* samples.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				FAB3079915C745470028504F /* ocioc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FAB3081A15C74F100028504F /* LoggingSample */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = LoggingSample;
+			remoteRef = FAB3081915C74F100028504F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAB3079815C745470028504F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB307C615C745BB0028504F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAB3079515C745470028504F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB307C315C745BB0028504F /* OCIOCContainer.m in Sources */,
+				FAB307C515C745BB0028504F /* OCIOCDynamicProxy.m in Sources */,
+				FAB307CB15C745BB0028504F /* OCIOCPropertyUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FAB307BB15C745BB0028504F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAB307BC15C745BB0028504F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAB307AD15C745470028504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FAB307AE15C745470028504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FAB307B015C745470028504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ocioc-Prefix.pch";
+				INFOPLIST_FILE = "ocioc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		FAB307B115C745470028504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ocioc-Prefix.pch";
+				INFOPLIST_FILE = "ocioc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAB3079315C745470028504F /* Build configuration list for PBXProject "ocioc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB307AD15C745470028504F /* Debug */,
+				FAB307AE15C745470028504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB307AF15C745470028504F /* Build configuration list for PBXNativeTarget "ocioc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB307B015C745470028504F /* Debug */,
+				FAB307B115C745470028504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAB3079015C745470028504F /* Project object */;
+}

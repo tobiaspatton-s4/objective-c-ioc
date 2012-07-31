@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "PropertyUtils.h"
+#import "OCIOCPropertyUtils.h"
 #import <objc/objc-runtime.h>
 
-@interface PropertyUtils(PrivateMethods)
+@interface OCIOCPropertyUtils(PrivateMethods)
 + (NSDictionary *) parsePropertyAttributes: (NSString *)attr;
 @end
 
-@implementation PropertyUtils
+@implementation OCIOCPropertyUtils
 
 NSString *PropertyType = @"type";
 NSString *PropertyProtocols = @"proto";

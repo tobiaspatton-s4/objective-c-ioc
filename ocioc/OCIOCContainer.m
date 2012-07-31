@@ -6,13 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Container.h"
-#import "SupportsLogging.h"
-#import "LoggingInterceptor.h"
-#include "PropertyUtils.h"
+#import "OCIOCContainer.h"
+#include "OCIOCPropertyUtils.h"
 #import <objc/runtime.h>
 
-@interface Container(PrivateMethods)
+@interface OCIOCContainer(PrivateMethods)
 - (void) registerName:(NSString *)name withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
 - (NSArray *) registeredInterceptorsForClass: (Class)class;
 - (id) newInstanceOfName: (NSString *)name;
@@ -20,22 +18,22 @@
 - (NSString *) defaultSetterForProperty: (NSString *)property;
 @end
 
-@implementation Container
+@implementation OCIOCContainer
 
 const NSString *modeShared = @"ModeShared";
 const NSString *modeNonShared = @"ModeNonShared";
 
-static Container *gContainer;
+static OCIOCContainer *gContainer;
 
 + (void)initialize
 {
     if(gContainer == nil)
     {
-        gContainer = [[Container alloc] init];
+        gContainer = [[OCIOCContainer alloc] init];
     }    
 }
 
-+ (Container *) sharedContainer
++ (OCIOCContainer *) sharedContainer
 {
     return gContainer;
 }
@@ -89,12 +87,12 @@ static Container *gContainer;
     }
 }
 
-- (void) registerInterceptor: (id<IInterceptor>)interceptor forProtocol: (Protocol *)proto;
+- (void) registerInterceptor: (id<OCIOCIntercepting>)interceptor forProtocol: (Protocol *)proto;
 {
     [RegisteredInterceptors setObject:interceptor forKey:NSStringFromProtocol(proto)];
 }
 
-- (id<IInterceptor>) InterceptorForProtocol: (Protocol *)proto
+- (id<OCIOCIntercepting>) InterceptorForProtocol: (Protocol *)proto
 {
     return [RegisteredInterceptors valueForKey:NSStringFromProtocol(proto)];
 }
@@ -116,12 +114,16 @@ static Container *gContainer;
 
 - (id) newInstanceOfProtocol: (Protocol *)proto
 {
-    return [self newInstanceOfName:NSStringFromProtocol(proto)];    
+    id result = [self newInstanceOfName:NSStringFromProtocol(proto)];    
+    [self satisfyImportsForObject:result];
+    return result;
 }
 
 - (id) newInstanceOfClass: (Class)class
 {
-    return [self newInstanceOfName:NSStringFromClass(class)];
+    id result = [self newInstanceOfName:NSStringFromClass(class)];
+    [self satisfyImportsForObject:result];
+    return result;
 }
 
 - (id) newInstanceOfName: (NSString *)name;
@@ -133,7 +135,7 @@ static Container *gContainer;
         return nil;
     }
     
-    id result = [[DynamicProxy alloc] initWithBlock:intializerBlock];
+    id result = [[OCIOCDynamicProxy alloc] initWithBlock:intializerBlock];
     
     if(result == nil)
     {
@@ -161,9 +163,14 @@ static Container *gContainer;
 
 - (void) satisfyImportsForObject: (id)object
 {
+    if([object class] == [OCIOCDynamicProxy class])
+    {
+        object = [(OCIOCDynamicProxy *)object InnerObject];
+    }
+    
     NSMutableString *propertyTypeDisplayName = [NSMutableString string];
     
-    NSDictionary *properties = [PropertyUtils classProperties:[object class]];
+    NSDictionary *properties = [OCIOCPropertyUtils classProperties:[object class]];
     NSSet *importPropertyKeys = [properties keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop)
         {
             return [[(NSString *)key lowercaseString] hasPrefix:@"import"];

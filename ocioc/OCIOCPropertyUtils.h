@@ -14,7 +14,7 @@ extern NSString *PropertyType;
 // The property's return type protocol list. The value type is "NSArray". Each array element has the type "Protocol *".
 extern NSString *PropertyProtocols;
 
-@interface PropertyUtils : NSObject
+@interface OCIOCPropertyUtils : NSObject
 
 + (NSDictionary *) classProperties: (Class)class;
 

@@ -12,12 +12,12 @@
 
 - (void) willInvoke: (NSInvocation *)invocation
 {
-    NSLog(@"About to perform %@() on instance of %@", NSStringFromSelector([invocation selector]), [[invocation target] class]);
+    NSLog(@"About to perform %@() on instance <%p> of %@", NSStringFromSelector([invocation selector]), [invocation target], [[invocation target] class]);
 }
 
 - (void) didInvoke: (NSInvocation *)invocation
 {
-    NSLog(@"Finished performing %@ on instance of %@", NSStringFromSelector([invocation selector]), [[invocation target] class]);
+    NSLog(@"Finished performing %@ on instance <%p> of %@", NSStringFromSelector([invocation selector]), [invocation target], [[invocation target] class]);
 }
 
 @end
