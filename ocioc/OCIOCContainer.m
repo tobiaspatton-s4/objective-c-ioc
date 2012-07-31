@@ -11,7 +11,7 @@
 #import <objc/runtime.h>
 
 @interface OCIOCContainer(PrivateMethods)
-- (void) registerName:(NSString *)name withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
+- (void) registerName:(NSString *)name withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
 - (NSArray *) registeredInterceptorsForClass: (Class)class;
 - (id) newInstanceOfName: (NSString *)name;
 - (void) addInterceptorsToProxy: (id) proxy;
@@ -61,24 +61,24 @@ static OCIOCContainer *gContainer;
     [super dealloc];
 }
 
-- (void) registerProtocol:(Protocol *)proto withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode
+- (void) registerProtocol:(Protocol *)proto withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode
 {
     [self registerName:NSStringFromProtocol(proto) withInitializer:initializer andMode:mode];    
 }
 
-- (void) registerClass: (Class)class withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
+- (void) registerClass: (Class)class withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
 {
     [self registerName:NSStringFromClass(class) withInitializer:initializer andMode:mode];
 }
 
-- (void) registerName:(NSString *)name withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode
+- (void) registerName:(NSString *)name withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode
 {
     if(mode == modeShared)
     {
         id instance = initializer();
         [Singletons setObject:instance forKey:name];  
         // Copy the block. It is stack object and will be invalidted when the stack from is popped.
-        InitializerBlock block = [[^(){return [[Singletons valueForKey:name] retain];} copy] autorelease];
+        OCIOCInitializerBlock block = [[^(){return [[Singletons valueForKey:name] retain];} copy] autorelease];
         [RegisteredClasses setObject:block forKey:name];    
     }
     else 
@@ -128,7 +128,7 @@ static OCIOCContainer *gContainer;
 
 - (id) newInstanceOfName: (NSString *)name;
 {
-    InitializerBlock intializerBlock = [RegisteredClasses valueForKey:name];
+    OCIOCInitializerBlock intializerBlock = [RegisteredClasses valueForKey:name];
     if(intializerBlock == nil)
     {
         NSLog(@"Class %@ was not registered with the container.", name);
@@ -165,7 +165,7 @@ static OCIOCContainer *gContainer;
 {
     if([object class] == [OCIOCDynamicProxy class])
     {
-        object = [(OCIOCDynamicProxy *)object InnerObject];
+        object = [(OCIOCDynamicProxy *)object innerObject];
     }
     
     NSMutableString *propertyTypeDisplayName = [NSMutableString string];
@@ -179,7 +179,7 @@ static OCIOCContainer *gContainer;
     for(id key in importPropertyKeys)
     {
         NSString *propertyDisplayName = [NSString stringWithFormat:@"%@.%@", [object class], key];
-        InitializerBlock initializer = nil;
+        OCIOCInitializerBlock initializer = nil;
         
         NSDictionary *propertyAttrs = [properties valueForKey:key];
         Class class = (Class)[propertyAttrs valueForKey:PropertyType];

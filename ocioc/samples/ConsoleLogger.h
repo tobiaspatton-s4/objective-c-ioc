@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ILogger.h"
+#import "Logging.h"
 
-@interface ConsoleLogger : NSObject<ILogger>
+@interface ConsoleLogger : NSObject<Logging>
 
 @end

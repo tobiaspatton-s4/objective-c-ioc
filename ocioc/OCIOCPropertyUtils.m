@@ -97,8 +97,8 @@ NSString *PropertyProtocols = @"proto";
         }
         else
         {   
-            unsigned loc = startOfProtocols.location + 1;
-            unsigned len = [typeAttr length] - loc - 1;
+            unsigned long loc = startOfProtocols.location + 1;
+            unsigned long len = [typeAttr length] - loc - 1;
             NSString *protocolsAttr = [typeAttr substringWithRange:NSMakeRange(loc, len)];
             NSArray *protocolNames = [protocolsAttr componentsSeparatedByString:@"><"];
             NSMutableArray *protocols = [NSMutableArray array];

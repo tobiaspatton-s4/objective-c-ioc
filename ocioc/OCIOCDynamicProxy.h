@@ -9,14 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "OCIOCIntercepting.h"
 
-typedef id (^InitializerBlock)();
+typedef id (^OCIOCInitializerBlock)();
 
 @interface OCIOCDynamicProxy : NSObject
 
-@property (nonatomic, retain) id InnerObject;
-@property (nonatomic, retain) NSMutableArray *Interceptors;
+@property (nonatomic, retain) id innerObject;
+@property (nonatomic, retain) NSMutableArray *interceptors;
 
-- (id) initWithBlock: (InitializerBlock)initializerBlock;
+- (id) initWithBlock: (OCIOCInitializerBlock)initializerBlock;
 - (void) addInterceptor: (id<OCIOCIntercepting>) interceptor;
 - (Class) InnerClass;
 

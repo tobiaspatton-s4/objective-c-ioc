@@ -10,55 +10,46 @@
 
 @implementation OCIOCDynamicProxy
 
-@synthesize InnerObject;
-@synthesize Interceptors;
+@synthesize innerObject;
+@synthesize interceptors;
 
-- (id) initWithBlock: (InitializerBlock)initializerBlock
+- (id) initWithBlock: (OCIOCInitializerBlock)initializerBlock
 {
     if(self = [super init])
     {
-        InnerObject = initializerBlock();
-        self.Interceptors = [NSMutableArray array];
+        self.innerObject = initializerBlock();
+        self.interceptors = [NSMutableArray array];
     }
     return self;    
 }
 
-- (id) initWithBlock: (InitializerBlock)initializerBlock andInterceptors:(NSArray *)interceptors;
-{
-    if(self = [self initWithBlock:initializerBlock])
-    {
-        self.Interceptors = [NSMutableArray arrayWithArray:interceptors];
-    }
-    return self;
-}
-
 - (void) addInterceptor: (id<OCIOCIntercepting>) interceptor
 {
-    [Interceptors addObject: interceptor];
+    [interceptors addObject: interceptor];
 }
 
 - (void) dealloc
 {
-    [InnerObject release];
-    [Interceptors release];
+    [innerObject release];
+    [interceptors release];
     [super dealloc];
 }
 
 - (void) forwardInvocation:(NSInvocation *)anInvocation
 {
-    if(Interceptors != nil)
+    if(interceptors != nil)
     {
-        for(id interceptor in Interceptors)
+        for(id interceptor in interceptors)
         {
             [interceptor willInvoke:anInvocation];
         }
     }
     
-    [anInvocation invokeWithTarget:InnerObject];
+    [anInvocation invokeWithTarget:innerObject];
     
-    if(Interceptors != nil)
+    if(interceptors != nil)
     {
-        for(id interceptor in Interceptors)
+        for(id interceptor in interceptors)
         {
             [interceptor didInvoke:anInvocation];
         }
@@ -67,12 +58,12 @@
 
 - (NSMethodSignature *) methodSignatureForSelector:(SEL)aSelector
 {
-    return [InnerObject methodSignatureForSelector:aSelector];
+    return [innerObject methodSignatureForSelector:aSelector];
 }
 
 - (Class) InnerClass
 {
-    return [InnerObject class];
+    return [innerObject class];
 }
 
 @end

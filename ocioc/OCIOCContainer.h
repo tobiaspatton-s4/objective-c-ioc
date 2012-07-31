@@ -22,8 +22,8 @@ extern const NSString *modeNonShared;
 @property (nonatomic, retain) NSMutableDictionary *RegisteredInterceptors;
 @property (nonatomic, retain) NSMutableDictionary *Singletons;
 
-- (void) registerClass:(Class)class withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
-- (void) registerProtocol:(Protocol *)proto withInitializer:(InitializerBlock)initializer andMode:(const NSString *)mode;
+- (void) registerClass:(Class)class withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
+- (void) registerProtocol:(Protocol *)proto withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
 
 - (void) registerInterceptor: (id<OCIOCIntercepting>)interceptor forProtocol: (Protocol *)proto;
 - (id<OCIOCIntercepting>) InterceptorForProtocol: (Protocol *)proto;

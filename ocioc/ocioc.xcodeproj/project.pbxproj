@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		FAB3079E15C745470028504F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3079D15C745470028504F /* Cocoa.framework */; };
-		FAB307C215C745BB0028504F /* OCIOCContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B615C745BB0028504F /* OCIOCContainer.h */; };
 		FAB307C315C745BB0028504F /* OCIOCContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B715C745BB0028504F /* OCIOCContainer.m */; };
-		FAB307C415C745BB0028504F /* OCIOCDynamicProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */; };
 		FAB307C515C745BB0028504F /* OCIOCDynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */; };
 		FAB307C615C745BB0028504F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB307BB15C745BB0028504F /* InfoPlist.strings */; };
-		FAB307C715C745BB0028504F /* OCIOCIntercepting.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */; };
-		FAB307C915C745BB0028504F /* ocioc-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BF15C745BB0028504F /* ocioc-Prefix.pch */; };
-		FAB307CA15C745BB0028504F /* OCIOCPropertyUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */; };
 		FAB307CB15C745BB0028504F /* OCIOCPropertyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */; };
+		FADD867F15C878970024AF0E /* OCIOCContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B615C745BB0028504F /* OCIOCContainer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FADD868015C8789D0024AF0E /* OCIOCDynamicProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FADD868115C8789F0024AF0E /* OCIOCIntercepting.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FADD868215C878A20024AF0E /* OCIOCPropertyUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FADD868415C879330024AF0E /* ocioc.h in Headers */ = {isa = PBXBuildFile; fileRef = FADD868315C878BB0024AF0E /* ocioc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,7 @@
 		FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCPropertyUtils.h; sourceTree = "<group>"; };
 		FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCPropertyUtils.m; sourceTree = "<group>"; };
 		FAB307E715C7472D0028504F /* samples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = samples.xcodeproj; path = samples/samples.xcodeproj; sourceTree = "<group>"; };
+		FADD868315C878BB0024AF0E /* ocioc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ocioc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 				FAB307BF15C745BB0028504F /* ocioc-Prefix.pch */,
 				FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */,
 				FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */,
+				FADD868315C878BB0024AF0E /* ocioc.h */,
 				FAB307BA15C745BB0028504F /* en.lproj */,
 				FAB3079C15C745470028504F /* Frameworks */,
 				FAB3079B15C745470028504F /* Products */,
@@ -129,11 +131,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB307C215C745BB0028504F /* OCIOCContainer.h in Headers */,
-				FAB307C415C745BB0028504F /* OCIOCDynamicProxy.h in Headers */,
-				FAB307C715C745BB0028504F /* OCIOCIntercepting.h in Headers */,
-				FAB307C915C745BB0028504F /* ocioc-Prefix.pch in Headers */,
-				FAB307CA15C745BB0028504F /* OCIOCPropertyUtils.h in Headers */,
+				FADD868415C879330024AF0E /* ocioc.h in Headers */,
+				FADD867F15C878970024AF0E /* OCIOCContainer.h in Headers */,
+				FADD868215C878A20024AF0E /* OCIOCPropertyUtils.h in Headers */,
+				FADD868015C8789D0024AF0E /* OCIOCDynamicProxy.h in Headers */,
+				FADD868115C8789F0024AF0E /* OCIOCIntercepting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +166,7 @@
 		FAB3079015C745470028504F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = FAB3079315C745470028504F /* Build configuration list for PBXProject "ocioc" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -286,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -301,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;

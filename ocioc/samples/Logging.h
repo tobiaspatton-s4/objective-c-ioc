@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ILogger <NSObject>
+@protocol Logging <NSObject>
 @required
 - (void) logMessage: (NSString *)msg;
 @end

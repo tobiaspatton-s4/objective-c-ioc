@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCIOCIntercepting.h"
+#import <ocioc/ocioc.h>
 
 @interface LoggingInterceptor : NSObject<OCIOCIntercepting>
 

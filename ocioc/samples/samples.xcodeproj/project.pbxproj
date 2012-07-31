@@ -11,8 +11,8 @@
 		FAB3080B15C7484A0028504F /* ConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307EE15C747A70028504F /* ConsoleLogger.m */; };
 		FAB3080C15C7484A0028504F /* LoggingInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307F515C747A70028504F /* LoggingInterceptor.m */; };
 		FAB3080D15C7484A0028504F /* loggingSample.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307FB15C748000028504F /* loggingSample.m */; };
-		FAB3080F15C748A10028504F /* ocioc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3080E15C748A10028504F /* ocioc.framework */; };
 		FAB3081115C7490A0028504F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3081015C7490A0028504F /* Cocoa.framework */; };
+		FADD868B15C87BCF0024AF0E /* ocioc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADD868A15C87BCF0024AF0E /* ocioc.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,14 +31,14 @@
 		FAB307DB15C7472D0028504F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FAB307ED15C747A70028504F /* ConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = SOURCE_ROOT; };
 		FAB307EE15C747A70028504F /* ConsoleLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleLogger.m; sourceTree = SOURCE_ROOT; };
-		FAB307F115C747A70028504F /* ILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILogger.h; sourceTree = SOURCE_ROOT; };
 		FAB307F415C747A70028504F /* LoggingInterceptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingInterceptor.h; sourceTree = SOURCE_ROOT; };
 		FAB307F515C747A70028504F /* LoggingInterceptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingInterceptor.m; sourceTree = SOURCE_ROOT; };
 		FAB307F915C747A70028504F /* SupportsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportsLogging.h; sourceTree = SOURCE_ROOT; };
 		FAB307FB15C748000028504F /* loggingSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loggingSample.m; sourceTree = "<group>"; };
 		FAB3080015C748380028504F /* LoggingSample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LoggingSample; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAB3080E15C748A10028504F /* ocioc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ocioc.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug/ocioc.framework"; sourceTree = "<group>"; };
 		FAB3081015C7490A0028504F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		FADD867815C878340024AF0E /* Logging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		FADD868A15C87BCF0024AF0E /* ocioc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ocioc.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug/ocioc.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +47,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB3081115C7490A0028504F /* Cocoa.framework in Frameworks */,
-				FAB3080F15C748A10028504F /* ocioc.framework in Frameworks */,
 				FAB3080215C748380028504F /* CoreFoundation.framework in Frameworks */,
+				FADD868B15C87BCF0024AF0E /* ocioc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +58,7 @@
 		FAB307CC15C7472D0028504F = {
 			isa = PBXGroup;
 			children = (
+				FADD868A15C87BCF0024AF0E /* ocioc.framework */,
 				FAB3081C15C74F8C0028504F /* Common */,
 				FAB307FA15C747C80028504F /* Logging */,
 				FAB307DA15C7472D0028504F /* Frameworks */,
@@ -77,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				FAB3081015C7490A0028504F /* Cocoa.framework */,
-				FAB3080E15C748A10028504F /* ocioc.framework */,
 				FAB307DB15C7472D0028504F /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
@@ -99,7 +99,7 @@
 			children = (
 				FAB307ED15C747A70028504F /* ConsoleLogger.h */,
 				FAB307EE15C747A70028504F /* ConsoleLogger.m */,
-				FAB307F115C747A70028504F /* ILogger.h */,
+				FADD867815C878340024AF0E /* Logging.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -213,10 +213,7 @@
 		FAB3080915C748380028504F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug\"",
-				);
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -224,10 +221,7 @@
 		FAB3080A15C748380028504F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ocioc-fdvywbqductrjnevgdyykvyhqsxi/Build/Products/Debug\"",
-				);
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -251,6 +245,7 @@
 				FAB3080A15C748380028504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

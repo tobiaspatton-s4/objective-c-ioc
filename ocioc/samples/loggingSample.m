@@ -7,15 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "OCIOCContainer.h"
+#import <ocioc/ocioc.h>
 #import "LoggingInterceptor.h"
 #import "SupportsLogging.h"
-#import "ILogger.h"
+#import "Logging.h"
 #import "ConsoleLogger.h"
 
 @interface SampleClass : NSObject<SupportsLogging>
 
-@property (nonatomic, retain) id<ILogger> importLogger;
+@property (nonatomic, retain) id<Logging> importLogger;
 - (void) logMessage: (NSString *)msg;
 
 @end
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[])
         
         // Register a shared dependency. Any object created by the container that has a property with the "import" prefiex
         // and the type of id<ILogger> will get the shared ConsoleLogger instance injected.
-        [container registerProtocol:@protocol(ILogger) withInitializer:^(){ return [[ConsoleLogger alloc] init]; } andMode:modeShared];
+        [container registerProtocol:@protocol(Logging) withInitializer:^(){ return [[ConsoleLogger alloc] init]; } andMode:modeShared];
         
         SampleClass *sampleObject1 = [[[OCIOCContainer sharedContainer] newInstanceOfClass:[SampleClass class]] autorelease];
         [sampleObject1 logMessage:@"This is the first message"];
