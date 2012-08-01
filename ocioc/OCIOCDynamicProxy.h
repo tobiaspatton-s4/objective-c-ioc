@@ -11,7 +11,7 @@
 
 typedef id (^OCIOCInitializerBlock)();
 
-@interface OCIOCDynamicProxy : NSObject
+@interface OCIOCDynamicProxy : NSProxy
 
 @property (nonatomic, retain) id innerObject;
 @property (nonatomic, retain) NSMutableArray *interceptors;

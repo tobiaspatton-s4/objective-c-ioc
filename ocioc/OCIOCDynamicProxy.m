@@ -13,9 +13,16 @@
 @synthesize innerObject;
 @synthesize interceptors;
 
+- (id) init
+{
+    innerObject = nil;
+    interceptors = nil;
+    return self;
+}
+
 - (id) initWithBlock: (OCIOCInitializerBlock)initializerBlock
 {
-    if(self = [super init])
+    if(self = [self init])
     {
         self.innerObject = initializerBlock();
         self.interceptors = [NSMutableArray array];
