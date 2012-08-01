@@ -15,8 +15,8 @@
 
 @implementation OCIOCPropertyUtils
 
-NSString *PropertyType = @"type";
-NSString *PropertyProtocols = @"proto";
+NSString *kOCIOCPropertyType = @"type";
+NSString *kOCIOCPropertyProtocols = @"proto";
 
 + (NSDictionary *) classProperties: (Class)class
 {
@@ -52,8 +52,8 @@ NSString *PropertyProtocols = @"proto";
     if([components count] < 3)
     {
         // type is "id" with no protocols
-        [result setValue:nil forKey:PropertyType];
-        [result setValue:nil forKey:PropertyProtocols];        
+        [result setValue:nil forKey:kOCIOCPropertyType];
+        [result setValue:nil forKey:kOCIOCPropertyProtocols];        
     }
     else 
     {
@@ -65,7 +65,7 @@ NSString *PropertyProtocols = @"proto";
         if(startOfProtocols.location == 0)
         {
             // type is "id"            
-            [result setValue:nil forKey:PropertyType];
+            [result setValue:nil forKey:kOCIOCPropertyType];
         }
         else if(startOfProtocols.location == NSNotFound)
         {
@@ -75,7 +75,7 @@ NSString *PropertyProtocols = @"proto";
             {
                 NSLog(@"Could not create class from name %@", typeAttr);
             }
-            [result setValue:class forKey:PropertyType];
+            [result setValue:class forKey:kOCIOCPropertyType];
         }
         else 
         {
@@ -86,14 +86,14 @@ NSString *PropertyProtocols = @"proto";
             {
                 NSLog(@"Could not create class from name %@", typeName);
             }
-            [result setValue:class forKey:PropertyType];            
+            [result setValue:class forKey:kOCIOCPropertyType];            
         }
         
         // Parse the list of protocols
         
         if(startOfProtocols.location == NSNotFound)
         {            
-            [result setValue:nil forKey:PropertyProtocols];
+            [result setValue:nil forKey:kOCIOCPropertyProtocols];
         }
         else
         {   
@@ -111,7 +111,7 @@ NSString *PropertyProtocols = @"proto";
                 }
                 [protocols addObject:proto];
             }
-            [result setValue:protocols forKey:PropertyProtocols];
+            [result setValue:protocols forKey:kOCIOCPropertyProtocols];
         }
     }
     

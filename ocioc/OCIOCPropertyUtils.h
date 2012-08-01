@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 // The property's return type. The value type is "Class" or nil if propety returns "id"
-extern NSString *PropertyType;
+extern NSString *kOCIOCPropertyType;
 
 // The property's return type protocol list. The value type is "NSArray". Each array element has the type "Protocol *".
-extern NSString *PropertyProtocols;
+extern NSString *kOCIOCPropertyProtocols;
 
 @interface OCIOCPropertyUtils : NSObject
 

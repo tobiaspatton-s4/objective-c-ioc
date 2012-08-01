@@ -18,9 +18,9 @@ extern const NSString *modeNonShared;
 
 + (OCIOCContainer *) sharedContainer;
 
-@property (nonatomic, retain) NSMutableDictionary *RegisteredClasses;
-@property (nonatomic, retain) NSMutableDictionary *RegisteredInterceptors;
-@property (nonatomic, retain) NSMutableDictionary *Singletons;
+@property (nonatomic, retain) NSMutableDictionary *registeredClasses;
+@property (nonatomic, retain) NSMutableDictionary *registeredInterceptors;
+@property (nonatomic, retain) NSMutableDictionary *singletons;
 
 - (void) registerClass:(Class)class withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
 - (void) registerProtocol:(Protocol *)proto withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;

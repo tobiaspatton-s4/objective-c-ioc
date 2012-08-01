@@ -12,6 +12,11 @@
 		FAB307C515C745BB0028504F /* OCIOCDynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */; };
 		FAB307C615C745BB0028504F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAB307BB15C745BB0028504F /* InfoPlist.strings */; };
 		FAB307CB15C745BB0028504F /* OCIOCPropertyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */; };
+		FAD20B3F15C9DA7D00D8D338 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD20B3E15C9DA7D00D8D338 /* SenTestingKit.framework */; };
+		FAD20B4015C9DA7D00D8D338 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3079D15C745470028504F /* Cocoa.framework */; };
+		FAD20B4615C9DA7D00D8D338 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAD20B4415C9DA7D00D8D338 /* InfoPlist.strings */; };
+		FAD20B4915C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD20B4815C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.m */; };
+		FAD20B4E15C9DD8000D8D338 /* OCIOCPropertyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */; };
 		FADD867F15C878970024AF0E /* OCIOCContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B615C745BB0028504F /* OCIOCContainer.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FADD868015C8789D0024AF0E /* OCIOCDynamicProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FADD868115C8789F0024AF0E /* OCIOCIntercepting.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -46,6 +51,13 @@
 		FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCPropertyUtils.h; sourceTree = "<group>"; };
 		FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCPropertyUtils.m; sourceTree = "<group>"; };
 		FAB307E715C7472D0028504F /* samples.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = samples.xcodeproj; path = samples/samples.xcodeproj; sourceTree = "<group>"; };
+		FAD20B3D15C9DA7D00D8D338 /* OCIOCTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCIOCTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD20B3E15C9DA7D00D8D338 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FAD20B4315C9DA7D00D8D338 /* OCIOCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OCIOCTests-Info.plist"; sourceTree = "<group>"; };
+		FAD20B4515C9DA7D00D8D338 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FAD20B4715C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCIOCPropertyUtilsTests.h; sourceTree = "<group>"; };
+		FAD20B4815C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCIOCPropertyUtilsTests.m; sourceTree = "<group>"; };
+		FAD20B4A15C9DA7D00D8D338 /* OCIOCTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCIOCTests-Prefix.pch"; sourceTree = "<group>"; };
 		FADD868315C878BB0024AF0E /* ocioc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ocioc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +67,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB3079E15C745470028504F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD20B3915C9DA7D00D8D338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD20B3F15C9DA7D00D8D338 /* SenTestingKit.framework in Frameworks */,
+				FAD20B4015C9DA7D00D8D338 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +97,7 @@
 				FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */,
 				FADD868315C878BB0024AF0E /* ocioc.h */,
 				FAB307BA15C745BB0028504F /* en.lproj */,
+				FAD20B4115C9DA7D00D8D338 /* OCIOCTests */,
 				FAB3079C15C745470028504F /* Frameworks */,
 				FAB3079B15C745470028504F /* Products */,
 			);
@@ -85,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB3079A15C745470028504F /* ocioc.framework */,
+				FAD20B3D15C9DA7D00D8D338 /* OCIOCTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB3079D15C745470028504F /* Cocoa.framework */,
+				FAD20B3E15C9DA7D00D8D338 /* SenTestingKit.framework */,
 				FAB3079F15C745470028504F /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -122,6 +146,26 @@
 				FAB3081A15C74F100028504F /* LoggingSample */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FAD20B4115C9DA7D00D8D338 /* OCIOCTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAD20B4715C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.h */,
+				FAD20B4815C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.m */,
+				FAD20B4215C9DA7D00D8D338 /* Supporting Files */,
+			);
+			path = OCIOCTests;
+			sourceTree = "<group>";
+		};
+		FAD20B4215C9DA7D00D8D338 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FAD20B4315C9DA7D00D8D338 /* OCIOCTests-Info.plist */,
+				FAD20B4415C9DA7D00D8D338 /* InfoPlist.strings */,
+				FAD20B4A15C9DA7D00D8D338 /* OCIOCTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +204,24 @@
 			productReference = FAB3079A15C745470028504F /* ocioc.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		FAD20B3C15C9DA7D00D8D338 /* OCIOCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD20B4B15C9DA7D00D8D338 /* Build configuration list for PBXNativeTarget "OCIOCTests" */;
+			buildPhases = (
+				FAD20B3815C9DA7D00D8D338 /* Sources */,
+				FAD20B3915C9DA7D00D8D338 /* Frameworks */,
+				FAD20B3A15C9DA7D00D8D338 /* Resources */,
+				FAD20B3B15C9DA7D00D8D338 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCIOCTests;
+			productName = OCIOCTests;
+			productReference = FAD20B3D15C9DA7D00D8D338 /* OCIOCTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -187,6 +249,7 @@
 			projectRoot = "";
 			targets = (
 				FAB3079915C745470028504F /* ocioc */,
+				FAD20B3C15C9DA7D00D8D338 /* OCIOCTests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,7 +273,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAD20B3A15C9DA7D00D8D338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD20B4615C9DA7D00D8D338 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FAD20B3B15C9DA7D00D8D338 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAB3079515C745470028504F /* Sources */ = {
@@ -223,6 +310,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAD20B3815C9DA7D00D8D338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD20B4915C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.m in Sources */,
+				FAD20B4E15C9DD8000D8D338 /* OCIOCPropertyUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -230,6 +326,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				FAB307BC15C745BB0028504F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FAD20B4415C9DA7D00D8D338 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAD20B4515C9DA7D00D8D338 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -316,6 +420,38 @@
 			};
 			name = Release;
 		};
+		FAD20B4C15C9DA7D00D8D338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OCIOCTests/OCIOCTests-Prefix.pch";
+				INFOPLIST_FILE = "OCIOCTests/OCIOCTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		FAD20B4D15C9DA7D00D8D338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OCIOCTests/OCIOCTests-Prefix.pch";
+				INFOPLIST_FILE = "OCIOCTests/OCIOCTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +472,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FAD20B4B15C9DA7D00D8D338 /* Build configuration list for PBXNativeTarget "OCIOCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD20B4C15C9DA7D00D8D338 /* Debug */,
+				FAD20B4D15C9DA7D00D8D338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

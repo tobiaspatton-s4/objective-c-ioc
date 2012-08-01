@@ -58,7 +58,6 @@
 		FAB307CC15C7472D0028504F = {
 			isa = PBXGroup;
 			children = (
-				FADD868A15C87BCF0024AF0E /* ocioc.framework */,
 				FAB3081C15C74F8C0028504F /* Common */,
 				FAB307FA15C747C80028504F /* Logging */,
 				FAB307DA15C7472D0028504F /* Frameworks */,
@@ -77,6 +76,7 @@
 		FAB307DA15C7472D0028504F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FADD868A15C87BCF0024AF0E /* ocioc.framework */,
 				FAB3081015C7490A0028504F /* Cocoa.framework */,
 				FAB307DB15C7472D0028504F /* CoreFoundation.framework */,
 			);

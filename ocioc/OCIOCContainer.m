@@ -38,26 +38,26 @@ static OCIOCContainer *gContainer;
     return gContainer;
 }
 
-@synthesize RegisteredClasses;
-@synthesize RegisteredInterceptors;
-@synthesize Singletons;
+@synthesize registeredClasses;
+@synthesize registeredInterceptors;
+@synthesize singletons;
 
 - (id) init
 {
     if(self = [super init])
     {        
-        RegisteredClasses = [[NSMutableDictionary alloc] init];
-        RegisteredInterceptors = [[NSMutableDictionary alloc] init];
-        Singletons = [[NSMutableDictionary alloc] init];
+        registeredClasses = [[NSMutableDictionary alloc] init];
+        registeredInterceptors = [[NSMutableDictionary alloc] init];
+        singletons = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [RegisteredClasses release];
-    [RegisteredInterceptors release];
-    [Singletons release];
+    [registeredClasses release];
+    [registeredInterceptors release];
+    [singletons release];
     [super dealloc];
 }
 
@@ -76,36 +76,36 @@ static OCIOCContainer *gContainer;
     if(mode == modeShared)
     {
         id instance = initializer();
-        [Singletons setObject:instance forKey:name];  
+        [singletons setObject:instance forKey:name];  
         // Copy the block. It is stack object and will be invalidted when the stack from is popped.
-        OCIOCInitializerBlock block = [[^(){return [[Singletons valueForKey:name] retain];} copy] autorelease];
-        [RegisteredClasses setObject:block forKey:name];    
+        OCIOCInitializerBlock block = [[^(){return [[singletons valueForKey:name] retain];} copy] autorelease];
+        [registeredClasses setObject:block forKey:name];    
     }
     else 
     {
-        [RegisteredClasses setObject:initializer forKey:name];    
+        [registeredClasses setObject:initializer forKey:name];    
     }
 }
 
 - (void) registerInterceptor: (id<OCIOCIntercepting>)interceptor forProtocol: (Protocol *)proto;
 {
-    [RegisteredInterceptors setObject:interceptor forKey:NSStringFromProtocol(proto)];
+    [registeredInterceptors setObject:interceptor forKey:NSStringFromProtocol(proto)];
 }
 
 - (id<OCIOCIntercepting>) InterceptorForProtocol: (Protocol *)proto
 {
-    return [RegisteredInterceptors valueForKey:NSStringFromProtocol(proto)];
+    return [registeredInterceptors valueForKey:NSStringFromProtocol(proto)];
 }
 
 - (NSArray *) registeredInterceptorsForClass: (Class)class
 {
     NSMutableArray *result = [NSMutableArray array];
     
-    for(id proto in [RegisteredInterceptors allKeys])
+    for(id proto in [registeredInterceptors allKeys])
     {
         if([class conformsToProtocol:NSProtocolFromString(proto)])
         {
-            [result addObject:[RegisteredInterceptors valueForKey:proto]];
+            [result addObject:[registeredInterceptors valueForKey:proto]];
         }
     }
     
@@ -128,7 +128,7 @@ static OCIOCContainer *gContainer;
 
 - (id) newInstanceOfName: (NSString *)name;
 {
-    OCIOCInitializerBlock intializerBlock = [RegisteredClasses valueForKey:name];
+    OCIOCInitializerBlock intializerBlock = [registeredClasses valueForKey:name];
     if(intializerBlock == nil)
     {
         NSLog(@"Class %@ was not registered with the container.", name);
@@ -182,8 +182,8 @@ static OCIOCContainer *gContainer;
         OCIOCInitializerBlock initializer = nil;
         
         NSDictionary *propertyAttrs = [properties valueForKey:key];
-        Class class = (Class)[propertyAttrs valueForKey:PropertyType];
-        NSArray *protocols = (NSArray *)[propertyAttrs valueForKey:PropertyProtocols];
+        Class class = (Class)[propertyAttrs valueForKey:kOCIOCPropertyType];
+        NSArray *protocols = (NSArray *)[propertyAttrs valueForKey:kOCIOCPropertyProtocols];
         
         if(class == nil && protocols == nil)
         {
@@ -199,7 +199,7 @@ static OCIOCContainer *gContainer;
         else
         {
             [propertyTypeDisplayName appendString:NSStringFromClass(class)];
-            initializer = [RegisteredClasses valueForKey:NSStringFromClass(class)];
+            initializer = [registeredClasses valueForKey:NSStringFromClass(class)];
         }
         
         if(initializer == nil)
@@ -217,7 +217,7 @@ static OCIOCContainer *gContainer;
             }
             NSString *protoName = NSStringFromProtocol((Protocol *)[protocols objectAtIndex:0]);
             [propertyTypeDisplayName appendFormat:@"<%@>", protoName];
-            initializer = [RegisteredClasses valueForKey:protoName];
+            initializer = [registeredClasses valueForKey:protoName];
         }
         if(initializer == nil)
         {
