@@ -15,15 +15,15 @@
 @protocol TestProtocolTwo <NSObject>
 @end
 
-@interface TestClass : NSObject
-@property id idProperty;
-@property NSString *stringProperty;
-@property id<TestProtocolOne> idWithOneProtocolProperty;
-@property id<TestProtocolOne, TestProtocolTwo> idWithTwoProtocolsProperty;
-@property float floatProperty;
+@interface PropertyUtilsTestClass : NSObject
+@property (nonatomic, retain) id idProperty;
+@property (nonatomic, retain) NSString *stringProperty;
+@property (nonatomic, retain) id<TestProtocolOne> idWithOneProtocolProperty;
+@property (nonatomic, retain) id<TestProtocolOne, TestProtocolTwo> idWithTwoProtocolsProperty;
+@property (nonatomic, assign) float floatProperty;
 @end
 
-@implementation TestClass
+@implementation PropertyUtilsTestClass
 @end
 
 @implementation OCIOCPropertyUtilsTests
@@ -31,12 +31,13 @@
 - (void)setUp
 {
     [super setUp];
-    self.properties = [OCIOCPropertyUtils classProperties:[TestClass class]];
+    self.properties = [OCIOCPropertyUtils classProperties:[PropertyUtilsTestClass class]];
     STAssertNotNil([self.properties valueForKey:@"idProperty"], @"Method did return any information for idProperty");
 }
 
 - (void)tearDown
 {
+    self.properties = nil;
     [super tearDown];
 }
 
