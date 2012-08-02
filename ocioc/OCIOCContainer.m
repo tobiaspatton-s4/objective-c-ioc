@@ -20,8 +20,8 @@
 
 @implementation OCIOCContainer
 
-const NSString *modeShared = @"ModeShared";
-const NSString *modeNonShared = @"ModeNonShared";
+const NSString *kOCIOCModeShared = @"ModeShared";
+const NSString *kOCIOCModeNonShared = @"ModeNonShared";
 
 static OCIOCContainer *gContainer;
 
@@ -73,7 +73,7 @@ static OCIOCContainer *gContainer;
 
 - (void) registerName:(NSString *)name withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode
 {
-    if(mode == modeShared)
+    if(mode == kOCIOCModeShared)
     {
         id instance = initializer();
         [singletons setObject:instance forKey:name];  
@@ -92,7 +92,7 @@ static OCIOCContainer *gContainer;
     [registeredInterceptors setObject:interceptor forKey:NSStringFromProtocol(proto)];
 }
 
-- (id<OCIOCIntercepting>) InterceptorForProtocol: (Protocol *)proto
+- (id<OCIOCIntercepting>) InterceptorsForProtocol: (Protocol *)proto
 {
     return [registeredInterceptors valueForKey:NSStringFromProtocol(proto)];
 }

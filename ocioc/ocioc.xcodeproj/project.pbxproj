@@ -19,6 +19,7 @@
 		FAD20B4E15C9DD8000D8D338 /* OCIOCPropertyUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */; };
 		FAD20B5115C9EBE400D8D338 /* OCIOCDynamicProxyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD20B5015C9EBE400D8D338 /* OCIOCDynamicProxyTests.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		FAD20B5215C9EE9400D8D338 /* OCIOCDynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */; };
+		FAD20B6D15CB33C500D8D338 /* OCIOCInterceptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD20B6C15CB33C500D8D338 /* OCIOCInterceptorTests.m */; };
 		FADD867F15C878970024AF0E /* OCIOCContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B615C745BB0028504F /* OCIOCContainer.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FADD868015C8789D0024AF0E /* OCIOCDynamicProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FADD868115C8789F0024AF0E /* OCIOCIntercepting.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -42,8 +43,8 @@
 		FAB307A015C745470028504F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FAB307A115C745470028504F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FAB307A215C745470028504F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FAB307B615C745BB0028504F /* OCIOCContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCContainer.h; sourceTree = "<group>"; };
-		FAB307B715C745BB0028504F /* OCIOCContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCContainer.m; sourceTree = "<group>"; };
+		FAB307B615C745BB0028504F /* OCIOCContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCIOCContainer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FAB307B715C745BB0028504F /* OCIOCContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCIOCContainer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FAB307B815C745BB0028504F /* OCIOCDynamicProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCDynamicProxy.h; sourceTree = "<group>"; };
 		FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCDynamicProxy.m; sourceTree = "<group>"; };
 		FAB307BC15C745BB0028504F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -62,6 +63,8 @@
 		FAD20B4A15C9DA7D00D8D338 /* OCIOCTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCIOCTests-Prefix.pch"; sourceTree = "<group>"; };
 		FAD20B4F15C9EBE400D8D338 /* OCIOCDynamicProxyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCDynamicProxyTests.h; sourceTree = "<group>"; };
 		FAD20B5015C9EBE400D8D338 /* OCIOCDynamicProxyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCDynamicProxyTests.m; sourceTree = "<group>"; };
+		FAD20B6B15CB33C500D8D338 /* OCIOCInterceptorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCIOCInterceptorTests.h; sourceTree = "<group>"; };
+		FAD20B6C15CB33C500D8D338 /* OCIOCInterceptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCIOCInterceptorTests.m; sourceTree = "<group>"; };
 		FADD868315C878BB0024AF0E /* ocioc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ocioc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +163,8 @@
 				FAD20B4815C9DA7D00D8D338 /* OCIOCPropertyUtilsTests.m */,
 				FAD20B4F15C9EBE400D8D338 /* OCIOCDynamicProxyTests.h */,
 				FAD20B5015C9EBE400D8D338 /* OCIOCDynamicProxyTests.m */,
+				FAD20B6B15CB33C500D8D338 /* OCIOCInterceptorTests.h */,
+				FAD20B6C15CB33C500D8D338 /* OCIOCInterceptorTests.m */,
 			);
 			path = OCIOCTests;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				FAD20B4E15C9DD8000D8D338 /* OCIOCPropertyUtils.m in Sources */,
 				FAD20B5115C9EBE400D8D338 /* OCIOCDynamicProxyTests.m in Sources */,
 				FAD20B5215C9EE9400D8D338 /* OCIOCDynamicProxy.m in Sources */,
+				FAD20B6D15CB33C500D8D338 /* OCIOCInterceptorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +405,7 @@
 		FAB307B015C745470028504F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -415,6 +422,7 @@
 		FAB307B115C745470028504F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -431,6 +439,7 @@
 		FAD20B4C15C9DA7D00D8D338 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -448,6 +457,7 @@
 		FAD20B4D15C9DA7D00D8D338 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

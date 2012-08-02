@@ -44,11 +44,11 @@ int main(int argc, const char * argv[])
         // Register a sample class with the container.
         [container registerClass:[SampleClass class] 
                  withInitializer:^(){ return [[SampleClass alloc] init]; } 
-                         andMode:modeNonShared];
+                         andMode:kOCIOCModeNonShared];
         
         // Register a shared dependency. Any object created by the container that has a property with the "import" prefiex
         // and the type of id<ILogger> will get the shared ConsoleLogger instance injected.
-        [container registerProtocol:@protocol(Logging) withInitializer:^(){ return [[ConsoleLogger alloc] init]; } andMode:modeShared];
+        [container registerProtocol:@protocol(Logging) withInitializer:^(){ return [[ConsoleLogger alloc] init]; } andMode:kOCIOCModeShared];
         
         SampleClass *sampleObject1 = [[[OCIOCContainer sharedContainer] newInstanceOfClass:[SampleClass class]] autorelease];
         [sampleObject1 logMessage:@"This is the first message"];

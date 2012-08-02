@@ -34,7 +34,7 @@
 		FAB307F415C747A70028504F /* LoggingInterceptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingInterceptor.h; sourceTree = SOURCE_ROOT; };
 		FAB307F515C747A70028504F /* LoggingInterceptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingInterceptor.m; sourceTree = SOURCE_ROOT; };
 		FAB307F915C747A70028504F /* SupportsLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupportsLogging.h; sourceTree = SOURCE_ROOT; };
-		FAB307FB15C748000028504F /* loggingSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loggingSample.m; sourceTree = "<group>"; };
+		FAB307FB15C748000028504F /* loggingSample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = loggingSample.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FAB3080015C748380028504F /* LoggingSample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LoggingSample; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3081015C7490A0028504F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FADD867815C878340024AF0E /* Logging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
@@ -213,6 +213,7 @@
 		FAB3080915C748380028504F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -221,6 +222,7 @@
 		FAB3080A15C748380028504F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

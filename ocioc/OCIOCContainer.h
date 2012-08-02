@@ -13,8 +13,8 @@
 @interface OCIOCContainer : NSObject
 
 // Mode parameter for registerClass::
-extern const NSString *modeShared;
-extern const NSString *modeNonShared;
+extern const NSString *kOCIOCModeShared;
+extern const NSString *kOCIOCModeNonShared;
 
 + (OCIOCContainer *) sharedContainer;
 
@@ -26,7 +26,7 @@ extern const NSString *modeNonShared;
 - (void) registerProtocol:(Protocol *)proto withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
 
 - (void) registerInterceptor: (id<OCIOCIntercepting>)interceptor forProtocol: (Protocol *)proto;
-- (id<OCIOCIntercepting>) InterceptorForProtocol: (Protocol *)proto;
+- (id<OCIOCIntercepting>) InterceptorsForProtocol: (Protocol *)proto;
 
 - (id) newInstanceOfClass: (Class)class;
 - (id) newInstanceOfProtocol: (Protocol *)proto;
