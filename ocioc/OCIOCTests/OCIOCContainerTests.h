@@ -8,6 +8,8 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface OCIOCContainerTests : SenTestCase
+@class ContainerTestInterceptor;
 
+@interface OCIOCContainerTests : SenTestCase
+@property (nonatomic, retain) ContainerTestInterceptor *testInterceptor;
 @end

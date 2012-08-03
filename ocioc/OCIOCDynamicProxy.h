@@ -18,6 +18,6 @@ typedef id (^OCIOCInitializerBlock)();
 
 - (id) initWithBlock: (OCIOCInitializerBlock)initializerBlock;
 - (void) addInterceptor: (id<OCIOCIntercepting>) interceptor;
-- (Class) InnerClass;
+
 
 @end

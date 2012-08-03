@@ -9,6 +9,9 @@
 #import "OCIOCContainerTests.h"
 #import "OCIOCContainer.h"
 
+@protocol ContainerTestIntecepting <NSObject>
+@end
+
 @protocol ContainerTestProtocol
 @end
 
@@ -30,14 +33,16 @@
 @implementation TestDepencency
 @end
 
-@interface ContainerTestClass : NSObject
+@interface ContainerTestClass : NSObject<ContainerTestIntecepting>
 @property (nonatomic, retain) id<ContainerTestProtocol> importProtocolDependency;
 @property (nonatomic, retain) TestDepencency *importClassDependency;
+- (void) testMethod;
 @end
 
 @implementation ContainerTestClass
 @synthesize importProtocolDependency;
 @synthesize importClassDependency;
+- (void) testMethod {}
 @end
 
 @interface NestingContainerTestClass : NSObject
@@ -56,10 +61,26 @@
 @synthesize importedRecursion;
 @end
 
+
+@interface ContainerTestInterceptor : NSObject<OCIOCIntercepting>
+@property (nonatomic, assign) BOOL didInvoke;
+@end
+
+@implementation ContainerTestInterceptor
+@synthesize didInvoke;
+- (void) willInvoke:(NSInvocation *)invocation {}
+- (void) didInvoke:(NSInvocation *)invocation
+{
+    self.didInvoke = TRUE;
+}
+@end
+
 @implementation OCIOCContainerTests
 
 - (void) setUp
 {
+    self.testInterceptor = [[ContainerTestInterceptor alloc] init];
+    
     [[OCIOCContainer sharedContainer] registerProtocol:@protocol(ContainerTestProtocol)
                                        withInitializer:^(){ return [[ContainerTestProtocolImplementation alloc] init]; }
                                                andMode:kOCIOCModeNonShared];
@@ -83,6 +104,8 @@
     [[OCIOCContainer sharedContainer] registerClass:[InfiniteRegressionTestClass class]
                                     withInitializer:^(){ return [[InfiniteRegressionTestClass alloc] init]; }
                                             andMode:kOCIOCModeShared];
+    
+    [[OCIOCContainer sharedContainer] registerInterceptor:self.testInterceptor forProtocol:@protocol(ContainerTestIntecepting)];
 }
 
 - (void) tearDown
@@ -136,6 +159,11 @@
                    @"Getting instance of class with recursive depenencies should throw");
 }
 
-// TODO: Test registered interceptors
+- (void) testRegisteredInterceptor
+{
+    ContainerTestClass *testObject = [[OCIOCContainer sharedContainer] newInstanceOfClass:[ContainerTestClass class]];
+    [testObject testMethod];
+    STAssertTrue(self.testInterceptor.didInvoke, @"Registered interceptor's didInvoke method was not called");
+}
 
 @end
