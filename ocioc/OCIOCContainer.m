@@ -20,16 +20,22 @@
 
 @implementation OCIOCContainer
 
-const NSString *kOCIOCModeShared = @"ModeShared";
-const NSString *kOCIOCModeNonShared = @"ModeNonShared";
+NSString *kOCIOCModeShared = @"ModeShared";
+NSString *kOCIOCModeNonShared = @"ModeNonShared";
+NSString *kOCIOCRecursionDepthExceededException = @"RecursionDepthExceededException";
+
+const static unsigned kOCIOCMaxRecursionDepthForSatisfyImports = 100;
 
 static OCIOCContainer *gContainer;
+static unsigned OCIOCSatisfyImportsRecursionGuard;
+
 
 + (void)initialize
 {
     if(gContainer == nil)
     {
         gContainer = [[OCIOCContainer alloc] init];
+        OCIOCSatisfyImportsRecursionGuard = 0;
     }    
 }
 
@@ -163,6 +169,18 @@ static OCIOCContainer *gContainer;
 
 - (void) satisfyImportsForObject: (id)object
 {
+    // This method must only have a single exit point to ensure that this guard gets decremented.
+    ++OCIOCSatisfyImportsRecursionGuard;
+    
+    if(OCIOCSatisfyImportsRecursionGuard > kOCIOCMaxRecursionDepthForSatisfyImports)
+    {
+        OCIOCSatisfyImportsRecursionGuard = 0;
+        [NSException raise:kOCIOCRecursionDepthExceededException
+                    format:@"Recursive calls to %@ has exceeded threshold of %u",
+                                NSStringFromSelector(@selector(satisfyImportsForObject:)),
+                                kOCIOCMaxRecursionDepthForSatisfyImports];
+    }
+    
     if([object class] == [OCIOCDynamicProxy class])
     {
         object = [(OCIOCDynamicProxy *)object innerObject];
@@ -227,12 +245,18 @@ static OCIOCContainer *gContainer;
         else
         {
             // finally, satisfy the depedency.
-            // TODO: Add support for custom setter methods
             id value = initializer();
+            
+            // Call this method recursively to satisfy nested dependencies
+            [self satisfyImportsForObject:value];
+            
+            // TODO: Add support for custom setter methods
             SEL selector = NSSelectorFromString([self defaultSetterForProperty: key]);
             [object performSelector:selector withObject:value];
         }
     }
+    
+    --OCIOCSatisfyImportsRecursionGuard;
 }
 
 - (NSString *) defaultSetterForProperty: (NSString *)property

@@ -19,9 +19,7 @@
 @property (nonatomic, retain) id idProperty;
 @property (nonatomic, retain) NSString *stringProperty;
 @property (nonatomic, retain) id<TestProtocolOne> idWithOneProtocolProperty;
-@property (nonatomic, retain) id<TestProtocolOne, TestProtocolTwo> idWithTwoProtocolsProperty;
-@property (nonatomic, assign) float floatProperty;
-@end
+@property (nonatomic, retain) id<TestProtocolOne, TestProtocolTwo> idWithTwoProtocolsProperty;@end
 
 @implementation PropertyUtilsTestClass
 @end
@@ -84,12 +82,6 @@
     STAssertEquals([protocols count], (NSUInteger)2, @"Protocol count for id<TestProtocolOne> property was %u not 2", [protocols count]);
     STAssertEquals([protocols objectAtIndex:0], @protocol(TestProtocolOne), @"First protocol reported for id<TestProtocolOne, TestProtocolTwo>> propety was %@ not TestProtocolOne", NSStringFromProtocol([protocols objectAtIndex:0]));
     STAssertEquals([protocols objectAtIndex:1], @protocol(TestProtocolTwo), @"First protocol reported for id<TestProtocolOne, TestProtocolTwo>> propety was %@ not TestProtocolTwo", NSStringFromProtocol([protocols objectAtIndex:1]));
-}
-
-- (void)testFloatProperty
-{
-    // Non-object properties are not supported
-    STAssertNil([self.properties valueForKey:@"floatProperty"], @"Method not did return any information for floatPropety");
 }
 
 @end

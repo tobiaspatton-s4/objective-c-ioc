@@ -13,8 +13,11 @@
 @interface OCIOCContainer : NSObject
 
 // Mode parameter for registerClass::
-extern const NSString *kOCIOCModeShared;
-extern const NSString *kOCIOCModeNonShared;
+extern NSString *kOCIOCModeShared;
+extern NSString *kOCIOCModeNonShared;
+
+// Exception names
+extern NSString *kOCIOCRecursionDepthExceededException;
 
 + (OCIOCContainer *) sharedContainer;
 

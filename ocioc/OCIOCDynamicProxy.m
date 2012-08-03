@@ -73,4 +73,15 @@
     return [innerObject class];
 }
 
+#pragma region NSObject protocol
+
+- (BOOL) isEqual:(id)object
+{
+    if([object class] == [OCIOCDynamicProxy class])
+    {
+        return [[self innerObject] isEqual:[object innerObject]];
+    }
+    return FALSE;
+}
+
 @end
