@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F62D581115F8463500537A89 /* LoggerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F62D581015F8463500537A89 /* LoggerWrapper.m */; };
 		FAB3080215C748380028504F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB307DB15C7472D0028504F /* CoreFoundation.framework */; };
 		FAB3080B15C7484A0028504F /* ConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307EE15C747A70028504F /* ConsoleLogger.m */; };
 		FAB3080C15C7484A0028504F /* LoggingInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307F515C747A70028504F /* LoggingInterceptor.m */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F62D580F15F8463500537A89 /* LoggerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerWrapper.h; sourceTree = "<group>"; };
+		F62D581015F8463500537A89 /* LoggerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerWrapper.m; sourceTree = "<group>"; };
 		FAB307DB15C7472D0028504F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FAB307ED15C747A70028504F /* ConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = SOURCE_ROOT; };
 		FAB307EE15C747A70028504F /* ConsoleLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleLogger.m; sourceTree = SOURCE_ROOT; };
@@ -89,6 +92,8 @@
 				FAB307F415C747A70028504F /* LoggingInterceptor.h */,
 				FAB307F515C747A70028504F /* LoggingInterceptor.m */,
 				FAB307F915C747A70028504F /* SupportsLogging.h */,
+				F62D580F15F8463500537A89 /* LoggerWrapper.h */,
+				F62D581015F8463500537A89 /* LoggerWrapper.m */,
 				FAB307FB15C748000028504F /* loggingSample.m */,
 			);
 			name = Logging;
@@ -157,6 +162,7 @@
 				FAB3080B15C7484A0028504F /* ConsoleLogger.m in Sources */,
 				FAB3080C15C7484A0028504F /* LoggingInterceptor.m in Sources */,
 				FAB3080D15C7484A0028504F /* loggingSample.m in Sources */,
+				F62D581115F8463500537A89 /* LoggerWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

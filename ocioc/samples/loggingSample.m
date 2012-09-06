@@ -12,23 +12,7 @@
 #import "SupportsLogging.h"
 #import "Logging.h"
 #import "ConsoleLogger.h"
-
-@interface SampleClass : NSObject<SupportsLogging>
-
-@property (nonatomic, retain) id<Logging> importLogger;
-- (void) logMessage: (NSString *)msg;
-
-@end
-
-@implementation SampleClass
-
-@synthesize importLogger;
-- (void) logMessage: (NSString *)msg
-{
-    [importLogger logMessage:msg];
-}
-
-@end
+#import "LoggerWrapper.h"
 
 int main(int argc, const char * argv[])
 {
@@ -42,18 +26,18 @@ int main(int argc, const char * argv[])
                            forProtocol:@protocol(SupportsLogging)];
         
         // Register a sample class with the container.
-        [container registerClass:[SampleClass class] 
-                 withInitializer:^(){ return [[SampleClass alloc] init]; } 
+        [container registerClass:[LoggerWrapper class] 
+                 withInitializer:^(){ return [[LoggerWrapper alloc] init]; } 
                          andMode:kOCIOCModeNonShared];
         
         // Register a shared dependency. Any object created by the container that has a property with the "import" prefiex
         // and the type of id<ILogger> will get the shared ConsoleLogger instance injected.
         [container registerProtocol:@protocol(Logging) withInitializer:^(){ return [[ConsoleLogger alloc] init]; } andMode:kOCIOCModeShared];
         
-        SampleClass *sampleObject1 = [[[OCIOCContainer sharedContainer] newInstanceOfClass:[SampleClass class]] autorelease];
+        LoggerWrapper *sampleObject1 = [[[OCIOCContainer sharedContainer] newInstanceOfClass:[LoggerWrapper class]] autorelease];
         [sampleObject1 logMessage:@"This is the first message"];
         
-        SampleClass *sampleObject2 = [[[OCIOCContainer sharedContainer] newInstanceOfClass:[SampleClass class]] autorelease];
+        LoggerWrapper *sampleObject2 = [[[OCIOCContainer sharedContainer] newInstanceOfClass:[LoggerWrapper class]] autorelease];
         [sampleObject2 logMessage:@"This is the second mesage"];
         
         [sampleObject2 logMessage:@"The two message should come from the same logger instance"];

@@ -16,6 +16,7 @@ typedef id (^OCIOCInitializerBlock)();
 @property (nonatomic, retain) id innerObject;
 @property (nonatomic, retain) NSMutableArray *interceptors;
 
+- (Class) innerClass;
 - (id) initWithBlock: (OCIOCInitializerBlock)initializerBlock;
 - (void) addInterceptor: (id<OCIOCIntercepting>) interceptor;
 

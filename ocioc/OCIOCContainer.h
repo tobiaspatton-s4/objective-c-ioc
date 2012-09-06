@@ -24,6 +24,7 @@ extern NSString *kOCIOCRecursionDepthExceededException;
 @property (nonatomic, retain) NSMutableDictionary *registeredClasses;
 @property (nonatomic, retain) NSMutableDictionary *registeredInterceptors;
 @property (nonatomic, retain) NSMutableDictionary *singletons;
+@property (nonatomic, retain) NSMutableDictionary *imports;
 
 - (void) registerClass:(Class)class withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
 - (void) registerProtocol:(Protocol *)proto withInitializer:(OCIOCInitializerBlock)initializer andMode:(const NSString *)mode;
@@ -33,6 +34,8 @@ extern NSString *kOCIOCRecursionDepthExceededException;
 
 - (id) newInstanceOfClass: (Class)class;
 - (id) newInstanceOfProtocol: (Protocol *)proto;
+
+- (void) registerImportForProperty:(NSString *)propertyName inClass:(Class)class;
 
 - (void) satisfyImportsForObject: (id)object;
 

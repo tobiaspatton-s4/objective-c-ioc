@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F62D581215F846BA00537A89 /* OCIOCMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = F62D580A15F8440A00537A89 /* OCIOCMacros.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FAB3079E15C745470028504F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB3079D15C745470028504F /* Cocoa.framework */; };
 		FAB307C315C745BB0028504F /* OCIOCContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B715C745BB0028504F /* OCIOCContainer.m */; };
 		FAB307C515C745BB0028504F /* OCIOCDynamicProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F62D580A15F8440A00537A89 /* OCIOCMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCIOCMacros.h; sourceTree = "<group>"; };
 		FAB3079A15C745470028504F /* ocioc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ocioc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB3079D15C745470028504F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FAB307A015C745470028504F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -103,6 +105,7 @@
 				FAB307B915C745BB0028504F /* OCIOCDynamicProxy.m */,
 				FAB307BD15C745BB0028504F /* OCIOCIntercepting.h */,
 				FAB307BE15C745BB0028504F /* ocioc-Info.plist */,
+				F62D580A15F8440A00537A89 /* OCIOCMacros.h */,
 				FAB307BF15C745BB0028504F /* ocioc-Prefix.pch */,
 				FAB307C015C745BB0028504F /* OCIOCPropertyUtils.h */,
 				FAB307C115C745BB0028504F /* OCIOCPropertyUtils.m */,
@@ -197,6 +200,7 @@
 				FADD868215C878A20024AF0E /* OCIOCPropertyUtils.h in Headers */,
 				FADD868015C8789D0024AF0E /* OCIOCDynamicProxy.h in Headers */,
 				FADD868115C8789F0024AF0E /* OCIOCIntercepting.h in Headers */,
+				F62D581215F846BA00537A89 /* OCIOCMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +512,7 @@
 				FAD20B4D15C9DA7D00D8D338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,5 +12,6 @@
 #include "../PrivateHeaders/OCIOCContainer.h"
 #include "../PrivateHeaders/OCIOCDynamicProxy.h"
 #include "../PrivateHeaders/OCIOCIntercepting.h"
+#include "../PrivateHeaders/OCIOCMacros.h"
 
 #endif

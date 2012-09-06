@@ -47,6 +47,7 @@ static unsigned OCIOCSatisfyImportsRecursionGuard;
 @synthesize registeredClasses;
 @synthesize registeredInterceptors;
 @synthesize singletons;
+@synthesize imports;
 
 - (id) init
 {
@@ -55,6 +56,7 @@ static unsigned OCIOCSatisfyImportsRecursionGuard;
         registeredClasses = [[NSMutableDictionary alloc] init];
         registeredInterceptors = [[NSMutableDictionary alloc] init];
         singletons = [[NSMutableDictionary alloc] init];
+        self.imports = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -64,6 +66,7 @@ static unsigned OCIOCSatisfyImportsRecursionGuard;
     [registeredClasses release];
     [registeredInterceptors release];
     [singletons release];
+    [imports release];
     [super dealloc];
 }
 
@@ -155,7 +158,7 @@ static unsigned OCIOCSatisfyImportsRecursionGuard;
 
 - (void) addInterceptorsToProxy: (id) proxy
 {
-    NSArray *interceptors = [self registeredInterceptorsForClass:[proxy InnerClass]];
+    NSArray *interceptors = [self registeredInterceptorsForClass:[proxy innerClass]];
     if(interceptors == nil)
     {
         return;
@@ -186,13 +189,14 @@ static unsigned OCIOCSatisfyImportsRecursionGuard;
         object = [(OCIOCDynamicProxy *)object innerObject];
     }
     
-    NSMutableString *propertyTypeDisplayName = [NSMutableString string];
+    NSMutableString *propertyTypeDisplayName = [NSMutableString string];    
+    NSDictionary *properties = [imports valueForKey:NSStringFromClass([object class])];
+    if(properties == nil)
+    {
+        NSLog(@"Cannot satisfy imports for class %@ becuase no imports were registered", NSStringFromClass([object class]));
+    }
     
-    NSDictionary *properties = [OCIOCPropertyUtils classProperties:[object class]];
-    NSSet *importPropertyKeys = [properties keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop)
-        {
-            return [[(NSString *)key lowercaseString] hasPrefix:@"import"];
-        }];
+    NSArray *importPropertyKeys = [properties allKeys];
     
     for(id key in importPropertyKeys)
     {
@@ -263,6 +267,22 @@ static unsigned OCIOCSatisfyImportsRecursionGuard;
 {
     NSString *firstLetter = [property substringWithRange:NSMakeRange(0,1)];
     return [NSString stringWithFormat:@"set%@%@:", [firstLetter uppercaseString], [property substringFromIndex:1]];
+}
+
+- (void) registerImportForProperty:(NSString *)propertyName inClass:(Class)class
+{
+    NSString *className = NSStringFromClass(class);
+    NSMutableDictionary *dictForClass = [imports valueForKey:className];
+    if(dictForClass == nil)
+    {
+        dictForClass = [NSMutableDictionary dictionary];
+        [imports setValue:dictForClass forKey:className];
+    }
+    
+    NSDictionary *classProperties = [OCIOCPropertyUtils classProperties:class];
+    NSDictionary *propertyAttributes = [classProperties valueForKey:propertyName];
+    
+    [dictForClass setValue:propertyAttributes forKey:propertyName];
 }
 
 @end

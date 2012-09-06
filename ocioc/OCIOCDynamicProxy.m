@@ -68,7 +68,7 @@
     return [innerObject methodSignatureForSelector:aSelector];
 }
 
-- (Class) InnerClass
+- (Class) innerClass
 {
     return [innerObject class];
 }
